@@ -1,20 +1,5 @@
 import { HeartPulse } from "lucide-react"
-import { work_sans, yeseva } from "@/data"
-
-const specialties = [
-  "Neurology",
-  "Bones",
-  "Oncology",
-  "Otorhinolaryngology",
-  "Ophthalmology",
-  "Cardiovascular",
-  "Pulmonology",
-  "Renal Medicine",
-  "Gastroenterology",
-  "Urology",
-  "Dermatology",
-  "Gynaecology",
-]
+import { work_sans, yeseva, specialtiesWithIcon } from "@/data"
 
 export default function Specialization() {
   return (
@@ -28,7 +13,7 @@ export default function Specialization() {
 
         {/* Specialties Grid */}
         <div className="grid grid-cols-1 lg:mt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-14 md:gap-28">
-          {specialties.map((specialty, index) => (
+          {specialtiesWithIcon.map((specialty, index) => (
             <div key={index} className="flex flex-col items-center text-center group cursor-pointer">
               {/* Heart Icon with Medical Cross */}
               <div className="relative mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -36,7 +21,7 @@ export default function Specialization() {
               </div>
 
               {/* Specialty Name */}
-              <h3 className={`text-gray-700 ${work_sans.className} font-medium text-sm md:text-base lg:text-lg leading-tight`}>{specialty}</h3>
+              <h3 className={`text-gray-700 ${work_sans.className} font-medium text-sm md:text-base lg:text-lg leading-tight`}>{specialty.title}</h3>
             </div>
           ))}
         </div>

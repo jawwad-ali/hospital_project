@@ -1,17 +1,8 @@
 import Image from "next/image"
 import BestCare from "../../public/best_care.png";
-// import BestCare from "../../public/best_Care.png";
+import { features } from "@/data";
 
 export default function HeroSection() {
-  const features = [
-    { text: "A Passion for Healing" },
-    { text: "5-Star Care" },
-    { text: "All our best" },
-    { text: "Believe in Us" },
-    { text: "Always Caring" },
-    { text: "A Legacy of Excellence" },
-  ]
-
   return (
     <section className="bg-white">
       {/* Blue accent bar */}

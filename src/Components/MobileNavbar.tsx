@@ -10,15 +10,11 @@ import {
 import Image from "next/image";
 import { AlignJustify } from "lucide-react";
 
-import {
-  Phone,
-  Clock,
-  MapPin,
-} from "lucide-react";
+import { Phone, Clock, MapPin } from "lucide-react";
 
 const MobileNavbar = () => {
   return (
-    <Sheet >
+    <Sheet>
       <SheetTrigger className="p-5 bg-[#ED1B24] w-full text-white cursor-pointer">
         <AlignJustify />
       </SheetTrigger>

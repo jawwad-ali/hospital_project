@@ -1,27 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Yeseva_One } from "next/font/google";
-
-const yeseva = Yeseva_One({
-  subsets: ["latin"],
-  weight: "400",
-});
-
-const specialties = [
-  { title: "Neurology", icon: "/heart.jpg" },
-  { title: "Bones", icon: "/heart.jpg" },
-  { title: "Oncology", icon: "/heart.jpg" },
-  { title: "Otorhinolaryngology", icon: "/heart.jpg" },
-  { title: "Ophthalmology", icon: "/heart.jpg" },
-  { title: "Cardiovascular", icon: "/heart.jpg" },
-  { title: "Pulmonology", icon: "/heart.jpg" },
-  { title: "Renal Medicine", icon: "/heart.jpg" },
-  { title: "Gastroenterology", icon: "/heart.jpg" },
-  { title: "Urology", icon: "/heart.jpg" },
-  { title: "Dermatology", icon: "/heart.jpg" },
-  { title: "Gynaecology", icon: "/heart.jpg" },
-];
+import { yeseva, specialtiesWithIcon } from "@/data";
 
 export default function OurSpecialties() {
   return (
@@ -42,7 +22,7 @@ export default function OurSpecialties() {
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8">
-          {specialties.map((specialty, index) => (
+          {specialtiesWithIcon.map((specialty: any, index: number) => (
             <div
               key={index}
               className="flex flex-col items-center justify-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"

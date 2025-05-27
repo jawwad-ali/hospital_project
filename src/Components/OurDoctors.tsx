@@ -3,30 +3,7 @@
 import Image from "next/image"
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa"
 import { motion } from "framer-motion"
-import { Yeseva_One } from "next/font/google"
-
-const yeseva = Yeseva_One({
-  subsets: ["latin"],
-  weight: "400",
-})
-
-const doctors = [
-  {
-    name: "Doctor's Name",
-    specialty: "NEUROLOGY",
-    imageUrl: "/Rectangle 20.jpg",
-  },
-  {
-    name: "Doctor's Name",
-    specialty: "NEUROLOGY",
-    imageUrl: "/DoctorImage2.jpg",
-  },
-  {
-    name: "Doctor's Name",
-    specialty: "NEUROLOGY",
-    imageUrl: "/DoctorImage3.jpg",
-  },
-]
+import { doctors, yeseva } from "@/data"
 
 export default function OurDoctors() {
   return (

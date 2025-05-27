@@ -1,14 +1,7 @@
 import Image from "next/image"
 import { Eye, Heart } from "lucide-react"
 import NewsImages from "../../public/news.png"
-import { Work_Sans } from "next/font/google";
-
-const work_sans = Work_Sans({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"], // Add weights you use
-  display: "swap",
-  variable: "--font-work-sans",
-});
+import { work_sans } from "@/data"
 
 export default function NewsSection() {
   const newsArticles = [

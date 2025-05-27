@@ -3,25 +3,12 @@ import {
   Linkedin,
   Facebook,
   Instagram,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 import ContactInfo from "./ContactInfo";
 import { work_sans } from "@/data";
+import { contactDetails, importantLinks } from "@/data";
 
 export default function Footer() {
-  const contactDetails = [
-    { type: "EMERGENCY", label: "Call:", details: ["(237) 681-812-255"] },
-    { type: "EMAIL", label: "Email:", details: ["fildineeesoe@gmail.com"] },
-    {
-      type: "ADDRESS",
-      label: "Address:",
-      details: ["0123 Some place", "Karachi, Pakistan"],
-    },
-  ];
-
-  const importantLinks = ["Appointment", "Doctors", "Services", "About Us"];
-
   return (
     <footer className={`bg-[#090909] ${work_sans.className} text-white`}>
       {/* Main Footer Content */}
@@ -53,7 +40,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-          
+
           {/* Contact US */}
           <div className="lg:col-span-1">
             <h3 className={`text-white font-semibold text-lg mb-6`}>
