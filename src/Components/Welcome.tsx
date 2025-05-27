@@ -1,5 +1,6 @@
 import Image from "next/image"
-import BestCare from "../../public/best_Care.png";
+import BestCare from "../../public/best_care.png";
+// import BestCare from "../../public/best_Care.png";
 
 export default function HeroSection() {
   const features = [
