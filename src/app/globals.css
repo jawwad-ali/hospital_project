@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+
+@layer base {
+  * {
+    @apply border-gray-300 outline-blue-500/50;
+  }
+  body {
+    @apply bg-white text-black;
+  }
+}
+
+.aboutus_heading {
+  font-size: 3rem;
+}
