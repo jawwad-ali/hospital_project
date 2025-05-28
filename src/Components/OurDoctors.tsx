@@ -10,11 +10,11 @@ export default function OurDoctors() {
     <section className="py-16 bg-white text-center px-4">
       {/* Section Heading */}
       <div className="text-center mb-2">
-        <span className="text-[#00A0E3] font-medium tracking-wider text-sm">TRUSTED CARE</span>
+        <span className="text-[#00A0E3] ${work_sans.className} font-bold tracking-wider text-lg">TRUSTED CARE</span>
       </div>
 
       <h2
-        className={`text-3xl font-bold text-center text-[#1E3A8A] mb-14 ${yeseva.className}`}
+        className={`text-3xl md:text-4xl lg:text-5xl font-bold text-center text-[#1E3A8A] mb-14 ${yeseva.className}`}
       >
         Our Doctors
       </h2>

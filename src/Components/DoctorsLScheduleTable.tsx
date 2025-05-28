@@ -1,4 +1,4 @@
-import { doctorSchedule } from "@/data";
+import { doctorSchedule, tableHeadings } from "@/data";
 
 export default function DoctorScheduleTable() {
   return (
@@ -7,25 +7,18 @@ export default function DoctorScheduleTable() {
         {/* Desktop Table View */}
         <div className="hidden lg:block overflow-x-auto">
           <table className="w-full bg-white rounded-lg shadow-sm border border-gray-200">
+            {/* Table Heading */}
             <thead>
               <tr className="border-b-2 border-red-500">
-                <th className="text-left py-4 px-6 font-semibold text-gray-800 text-sm tracking-wider uppercase">
-                  Doctor Name
-                </th>
-                <th className="text-left py-4 px-6 font-semibold text-gray-800 text-sm tracking-wider uppercase">
-                  Department
-                </th>
-                <th className="text-left py-4 px-6 font-semibold text-gray-800 text-sm tracking-wider uppercase">
-                  Degree
-                </th>
-                <th className="text-left py-4 px-6 font-semibold text-gray-800 text-sm tracking-wider uppercase">
-                  Timings
-                </th>
-                <th className="text-left py-4 px-6 font-semibold text-gray-800 text-sm tracking-wider uppercase">
-                  Days
-                </th>
+                {tableHeadings.map((heading) => (
+                  <th className="text-left py-4 px-6 font-semibold text-gray-800 text-sm tracking-wider uppercase">
+                    {heading}
+                  </th>
+                ))}
               </tr>
             </thead>
+
+            {/* Table Body */}
             <tbody>
               {doctorSchedule.map((doctor, index) => (
                 <tr
