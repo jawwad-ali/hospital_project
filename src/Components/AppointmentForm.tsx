@@ -1,6 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { work_sans } from "@/data";
+import axios from "axios";
+// import XLSX from "xlsx";
+import { read, writeFileXLSX, utils } from "xlsx";
+import { handleServer } from "@/app/server";
+
+const url = process.env.EXCEL_SHEET;
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +36,7 @@ const AppointmentForm = () => {
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const isValidEmail = validateEmail(formData.email);
     if (!isValidEmail) {
@@ -39,6 +45,10 @@ const AppointmentForm = () => {
     }
     setErrors({ email: "" });
     setSubmitted(true);
+
+    const api = await handleServer(formData);
+    // const res = await api.json()
+    console.log('FE RES', api)
   };
 
   const timeSlots = [
@@ -65,11 +75,37 @@ const AppointmentForm = () => {
     });
   });
 
+  const readExcelSheetData = async () => {
+    // const options = {
+    //   url: "https://1drv.ms/x/s!AmNlRC1RwwVphTMBjavmB7xq4TT6?e=I2Hu4b",
+    //   responseType: "arraybuffer",
+    // };
+    // // @ts-ignore
+    // let axiosResponse = await axios(options);
+    // const workbook = XLSX.read(axiosResponse.data);
+    // console.log("workbook",workbook)
+    const res = await fetch("/api/excel/");
+    const arrayBuffer = await res.arrayBuffer();
+    const workbook = read(arrayBuffer, { type: "array" });
+    console.log("latest", workbook);
+
+    let worksheets = workbook.SheetNames.map((sheetName) => {
+      return {
+        sheetName,
+        data: utils.sheet_to_json(workbook.Sheets[sheetName]),
+      };
+    });
+
+    console.log("json:\n", JSON.stringify(worksheets), "\n\n");
+  };
+
+  useEffect(() => {
+    readExcelSheetData();
+  }, []);
+
   return (
     <div>
-      <div
-        className="relative w-full form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30"
-      >
+      <div className="relative w-full form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30">
         {!submitted ? (
           <form
             onSubmit={handleSubmit}
