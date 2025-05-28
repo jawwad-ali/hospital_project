@@ -13,3 +13,7 @@
 .aboutus_heading {
   font-size: 3rem;
 }
+
+.form_box_shadow{
+  box-shadow: -30px 0px red;
+}

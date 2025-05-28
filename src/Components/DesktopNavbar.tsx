@@ -85,7 +85,7 @@ const DesktopNavbar = () => {
               <Link href="#" className="font-medium">
                 News
               </Link>
-              <Link href="#" className="font-medium">
+              <Link href="/contact" className="font-medium">
                 Contact
               </Link>
             </div>
