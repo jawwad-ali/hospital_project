@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { useState } from "react";
+import { work_sans } from "@/data";
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
@@ -67,8 +68,7 @@ const AppointmentForm = () => {
   return (
     <div>
       <div
-        className="relative  bg-[#1F2B6C] text-white p-6 shadow-xl z-30"
-        style={{ height: "417.81px", width: "461px" }}
+        className="relative w-full form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30"
       >
         {!submitted ? (
           <form
@@ -188,16 +188,15 @@ const AppointmentForm = () => {
                 rows={2}
                 className="w-full p-2 rounded text-white resize-none"
               />
-              
             </div>
 
             <button
-                type="submit"
-                className="bg-[#ED1B24] cursor-pointer hover:bg-red-700  transition duration-300 text-white font-semibold py-2 rounded mt-17"
-              >
+              type="submit"
+              className={`${work_sans.className} bg-blue-300 opacity-85 text-[15px] cursor-pointer hover:opacity-90 transition
+               duration-300 text-black uppercase font-semibold py-2 text-base rounded mt-17`}
+            >
               Submit
             </button>
-
           </form>
         ) : (
           <div className="text-center text-white flex flex-col justify-center h-full">

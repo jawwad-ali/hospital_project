@@ -231,3 +231,13 @@ export const specialtiesWithIcon = [
   { title: "Dermatology", icon: "/heart.jpg" },
   { title: "Gynaecology", icon: "/heart.jpg" },
 ];
+
+export const scheduleHours = [
+  { day: "Monday", hours: "09:00 AM - 07:00 PM" },
+  { day: "Tuesday", hours: "09:00 AM - 07:00 PM" },
+  { day: "Wednesday", hours: "09:00 AM - 07:00 PM" },
+  { day: "Thursday", hours: "09:00 AM - 07:00 PM" },
+  { day: "Friday", hours: "09:00 AM - 07:00 PM" },
+  { day: "Saturday", hours: "09:00 AM - 07:00 PM" },
+  { day: "Sunday", hours: "Closed" },
+]

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @layer base {
   * {
     @apply border-gray-300 outline-blue-500/50;
@@ -14,6 +13,7 @@
   font-size: 3rem;
 }
 
-.form_box_shadow{
-  box-shadow: -30px 0px red;
+.form_box_shadow {
+  border-radius: 15px;
+  box-shadow: -25px 20px red;
 }

@@ -1,26 +1,31 @@
 import AppointmentForm from "./AppointmentForm";
 import { yeseva, work_sans } from "@/data";
+import ScheduleHours from "./ScheduleHours";
 
 const ContactPageAppointmentForm = () => {
   return (
-    <div className="my-20 w-full lg:w-6/12 container relative flex flex-col justify-center items-center mx-20">
-      <div>
+    <div className="my-20 container lg:flex gap-8 mx-auto relative px-12 lg:px-0">
+      <div className="w-full lg:w-6/12 flex flex-col relative">
         <h2
-          className={`${yeseva.className} text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2B6C]`}
+          className={`${yeseva.className} text-3xl md:text-4xl font-bold text-[#1F2B6C]`}
         >
           Book An Appointment
         </h2>
 
-        <p className={`text-md py-10 ${work_sans.className}`}>
+        <p className={`py-10 text-[15px] ${work_sans.className}`}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
           placerat scelerisque tortor ornare ornare. Convallis felis vitae
           tortor augue. Velit nascetur proin massa in. Consequat faucibus
           porttitor enim et.
         </p>
 
-        <div className="form_box_shadow">
-            <AppointmentForm />
+        <div>
+          <AppointmentForm />
         </div>
+      </div>
+
+      <div className="lg:w-6/12 relative mt-16 lg:mt-0">
+        <ScheduleHours />
       </div>
     </div>
   );
