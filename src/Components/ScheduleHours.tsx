@@ -1,13 +1,14 @@
 import { scheduleHours } from "@/data";
 import { Phone } from "lucide-react";
 import React from "react";
+import { work_sans } from "@/data";
 
 const ScheduleHours = () => {
   return (
     <div>
       {/* Right Section - Schedule Hours */}
-      <div className="bg-[#1F2B6C] p-8 rounded-lg text-white">
-        <h3 className="text-3xl md:text-5xl p-3 lg:p-5 font-bold mb-8">Schedule hours</h3>
+      <div className={`bg-[#1F2B6C] p-8 rounded-lg text-white ${work_sans.className}`}>
+        <h3 className={`text-2xl md:text-5xl p-2 lg:p-5 font-bold lg:mb-8 mb-2`}>Schedule hours</h3>
 
         {/* Schedule List */}
         <div className="space-y-4 mb-8">
