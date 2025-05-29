@@ -8,7 +8,8 @@ export default function DoctorScheduleTable() {
         <div className="hidden lg:block overflow-x-auto">
           <table className="w-full bg-white rounded-lg shadow-sm border border-gray-200">
             {/* Table Heading */}
-            <thead>
+            <thead
+            >
               <tr className="border-b-2 border-red-500">
                 {tableHeadings.map((heading) => (
                   <th className="text-left py-4 px-6 font-semibold text-gray-800 text-sm tracking-wider uppercase">
