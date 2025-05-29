@@ -49,7 +49,7 @@ const AppointmentForm = () => {
         color: "white",
       },
     });
-    await hadndleServer(formData);
+    await handleServer(formData);
   };
 
   const timeSlots = [
