@@ -1,71 +1,111 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa"
-import { motion } from "framer-motion"
-import { doctors, yeseva } from "@/data"
+import { doctors, yeseva } from "@/data";
+
+import React, { useState, useRef } from "react";
+import Image from "next/image";
+import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+
+type Doctor = {
+  name: string;
+  specialty: string;
+  imageUrl?: string;
+};
 
 export default function OurDoctors() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [sliderRef, slider] = useKeenSlider({
+    loop: true,
+    slides: {
+      perView: 1, // default mobile view: 1 slide per view
+      spacing: 15,
+    },
+    breakpoints: {
+      "(min-width: 1024px)": {
+        // lg breakpoint
+        slides: {
+          perView: 3, // 3 slides per view on large screens
+          spacing: 15,
+        },
+      },
+    },
+    slideChanged(s) {
+      setCurrentSlide(s.track.details.rel);
+    },
+    created(s) {
+      const play = () => {
+        s.next();
+        setTimeout(play, 3000);
+      };
+      setTimeout(play, 3000);
+    },
+  });
   return (
-    <section className="py-16 bg-white text-center px-4">
-      {/* Section Heading */}
-      <div className="text-center mb-2">
-        <span className="text-[#00A0E3] ${work_sans.className} font-bold tracking-wider text-lg">TRUSTED CARE</span>
-      </div>
-
-      <h2
-        className={`text-3xl md:text-4xl lg:text-5xl font-bold text-center text-[#1E3A8A] mb-14 ${yeseva.className}`}
-      >
-        Our Doctors
-      </h2>
-
-      {/* Grid layout */}
-      <div className="max-w-[1000px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+    <>
+      <div ref={sliderRef} className="keen-slider max-w-[1000px] mx-auto">
         {doctors.map((doc, index) => (
-          <motion.div
-            key={index}
-            className="w-[317px] max-h-[538px] bg-white border border-gray-100 rounded-lg shadow"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            viewport={{ once: true }}
-          >
-            {/* Doctor Image */}
-            <div className="w-full" style={{ height: "350px", width: "317px" }}>
-              <Image
-                src={doc.imageUrl || "/placeholder.svg"}
-                alt={doc.name}
-                width={400}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-
-            <div className="w-[317px] h-[142px] text-center bg-white rounded-lg shadow flex flex-col justify-between pt-4 pb-2">
-              <div>
-                <h3 className="text-lg font-medium text-gray-800 mb-1">{doc.name}</h3>
-                <p className="text-[#1E3A8A] font-bold mb-2">{doc.specialty}</p>
-                <div className="flex justify-center gap-3 mb-4">
-                  <span className="w-8 h-8 bg-[#1F2B6C] rounded-full flex items-center justify-center text-white">
-                    <FaLinkedinIn size={16} />
-                  </span>
-                  <span className="w-8 h-8 bg-[#1F2B6C] rounded-full flex items-center justify-center text-white">
-                    <FaFacebookF size={16} />
-                  </span>
-                  <span className="w-8 h-8 bg-[#1F2B6C] rounded-full flex items-center justify-center text-white">
-                    <FaInstagram size={16} />
-                  </span>
-                </div>
+          <div key={index} className="keen-slider__slide">
+            <div className="lg:w-[317px] mx-6 max-h-auto bg-white border border-gray-100 rounded-lg shadow">
+              <div className="w-full">
+                <Image
+                  src={doc.imageUrl || "/placeholder.svg"}
+                  alt={doc.name}
+                  width={400}
+                  height={500}
+                  className="w-full h-full"
+                  priority
+                />
               </div>
 
-              <button className="w-[340px] h-[47px]  bg-red-600 text-white text-center font-medium hover:bg-red-700 transition-colors mx-auto">
-                View Profile
-              </button>
+              <div className=" text-center bg-white rounded-lg shadow flex flex-col justify-between pt-4">
+                <div>
+                  <h3 className="text-lg font-medium text-gray-800 mb-1">
+                    {doc.name}
+                  </h3>
+                  <p className="text-[#1E3A8A] font-bold mb-2">
+                    {doc.specialty}
+                  </p>
+                  <div className="flex justify-center gap-3 mb-4">
+                    <span className="w-8 h-8 bg-[#1F2B6C] rounded-full flex items-center justify-center text-white">
+                      <FaLinkedinIn size={16} />
+                    </span>
+                    <span className="w-8 h-8 bg-[#1F2B6C] rounded-full flex items-center justify-center text-white">
+                      <FaFacebookF size={16} />
+                    </span>
+                    <span className="w-8 h-8 bg-[#1F2B6C] rounded-full flex items-center justify-center text-white">
+                      <FaInstagram size={16} />
+                    </span>
+                  </div>
+                </div>
+
+                <button className="w-full lg:w-[340px] py-3 cursor-pointer bg-red-600 text-white text-center font-medium hover:bg-red-700 transition-colors mx-auto">
+                  View Profile
+                </button>
+              </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
-    </section>
-  )
+
+      {/* Dots */}
+      <div className="flex justify-center mt-4 gap-3">
+        {slider?.current &&
+          [...Array(slider.current.track.details.slides.length).keys()].map(
+            (idx) => (
+              <button
+                key={idx}
+                onClick={() => slider.current?.moveToIdx(idx)}
+                className={`w-3 h-3 rounded-full ${
+                  currentSlide === idx ? "bg-blue-600" : "bg-gray-300"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            )
+          )}
+      </div>
+    </>
+  );
 }

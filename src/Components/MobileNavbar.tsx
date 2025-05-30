@@ -11,62 +11,26 @@ import Image from "next/image";
 import { AlignJustify } from "lucide-react";
 
 import { Phone, Clock, MapPin } from "lucide-react";
+import TopNavbarInfo from "./TopNavbarInfo";
+import Menus from "./Menus";
 
 const MobileNavbar = () => {
   return (
     <Sheet>
-      <SheetTrigger className="p-5 bg-[#ED1B24] w-full text-white cursor-pointer">
+      <SheetTrigger className="p-5 overflow-scroll bg-[#ED1B24] w-full text-white cursor-pointer">
         <AlignJustify />
       </SheetTrigger>
 
-      <SheetContent side="left" className="bg-white">
+      <SheetContent
+        side="left"
+        className="bg-white flex flex-col h-full max-h-screen overflow-y-auto"
+      >
         <SheetHeader>
           <SheetTitle>
-            <div className="p-2 rounded-md ml-10">
-              <Image
-                src="/logo.jpg"
-                alt="Hospital logo"
-                width={45}
-                height={16}
-              />
-            </div>
-            <div className="uppercase font-bold">
-              <span>AZIZA HUSSENI HOSPITAL</span>
-            </div>
+            <TopNavbarInfo />
           </SheetTitle>
-
-          <SheetDescription>
-            <div className="h-[35dvh] flex flex-col justify-between gap-4 mt-5">
-              <div className="flex items-center">
-                <div className="rounded-full bg-blue-50 p-2 mr-2">
-                  <Phone size={20} className="text-blue-600" />
-                </div>
-                <div className="text-xs">
-                  <div className="text-black font-semibold">EMERGENCY</div>
-                  <div>(237) 681-812-255</div>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <div className="rounded-full bg-blue-50 p-2 mr-2">
-                  <Clock size={20} className="text-blue-600" />
-                </div>
-                <div className="text-xs">
-                  <div className="text-black font-semibold">WORK HOUR</div>
-                  <div>09:00 - 20:00 Everyday</div>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <div className="rounded-full bg-blue-50 p-2 mr-2">
-                  <MapPin size={20} className="text-blue-600" />
-                </div>
-                <div className="text-xs">
-                  <div className="text-black font-semibold">LOCATION</div>
-                  <div>0123 Some Place</div>
-                </div>
-              </div>
-            </div>
-          </SheetDescription>
         </SheetHeader>
+        <Menus />
       </SheetContent>
     </Sheet>
   );

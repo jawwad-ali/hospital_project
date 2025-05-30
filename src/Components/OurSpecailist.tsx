@@ -6,7 +6,7 @@ import { yeseva, specialtiesWithIcon } from "@/data";
 export default function OurSpecialties() {
   return (
     <section className="w-full py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
         {/* Heading */}
         <h2 className="text-3xl md:text-6xl font-bold text-center text-black mb-5">
           HOW CAN WE HELP YOU
@@ -25,7 +25,8 @@ export default function OurSpecialties() {
           {specialtiesWithIcon.map((specialty: any, index: number) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+              className="flex flex-col items-center justify-center bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow 
+              duration-300"
             >
               <Image
                 src={specialty.icon}

@@ -19,12 +19,10 @@ const ContactInfo = (type: string, detail: string) => {
     const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
 
     return (
-      <div>
         <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
           {detail}
         </a>
         
-      </div>
     );
   } else {
     // Default fallback — plain text

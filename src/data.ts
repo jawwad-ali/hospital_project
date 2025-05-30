@@ -14,6 +14,27 @@ export const work_sans = Work_Sans({
   variable: "--font-work-sans",
 });
 
+export const navbarInfoItem = [
+  {
+    id: 1,
+    Icon: Phone,
+    title: "EMERGENCY",
+    value: "(237) 681-812-255",
+  },
+  {
+    id: 2,
+    Icon: Clock,
+    title: "WORK HOUR",
+    value: "09:00 - 20:00 Everyday",
+  },
+  {
+    id: 3,
+    Icon: MapPin,
+    title: "LOCATION",
+    value: "0123 Some Place",
+  },
+];
+
 export const contactData = [
   {
     id: 1,
