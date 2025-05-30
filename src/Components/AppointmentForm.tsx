@@ -22,7 +22,17 @@ type FormInputs = {
   message: string;
 };
 
-const AppointmentForm = () => {
+const AppointmentForm = ({
+  postion,
+  top,
+  right,
+  width,
+}: {
+  postion: string;
+  top: string;
+  right: string;
+  width: string;
+}) => {
   const {
     register,
     handleSubmit,
@@ -55,7 +65,10 @@ const AppointmentForm = () => {
 
   return (
     <div>
-      <div className="relative w-full form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30">
+      {/* <div className={`${postion} top-0 w-[25%] w-full form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30`}> */}
+      <div
+        className={`relative ${postion} ${top} ${width} ${right} form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30`}
+      >
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="h-full flex flex-col justify-between"

@@ -102,12 +102,6 @@ export default function NewsSection() {
           ))}
         </div>
 
-        {/* Pagination Dots */}
-        <div className="flex justify-center items-center gap-2">
-          <div className="w-3 h-3 bg-blue-200 rounded-full"></div>
-          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-blue-200 rounded-full"></div>
-        </div>
       </div>
     </section>
   )

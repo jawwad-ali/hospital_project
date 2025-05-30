@@ -22,11 +22,11 @@ export default function AppointmentSection() {
           src="/Rectangle 33.jpg"
           alt="Hospital"
           className="object-cover rounded-lg ml-[-300px]"
-          width={891}
+          width={750}
           height={505.44}
         />
       </div>
-      <AppointmentForm />
+      <AppointmentForm postion='lg:absolute' top='lg:top-72' right='lg:right-20' width='lg:w-[30%]' />
     </section>
   );
 }
