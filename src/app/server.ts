@@ -24,9 +24,9 @@ export const handleServer = async (data: any) => {
       requestBody: {
         values: [
           [
-            data.name,
+            data.fullname,
             data.email,
-            data.phone,
+            data.phoneNumber,
             data.gender,
             data.date,
             data.time,

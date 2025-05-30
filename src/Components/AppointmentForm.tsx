@@ -1,145 +1,127 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import { work_sans } from "@/data";
-import { read, utils } from "xlsx";
-import { handleServer } from "@/app/server";
 import { toast } from "sonner";
+import { useForm } from "react-hook-form";
+import { handleServer } from "@/app/server";
+import {
+  generateTimeSlots,
+  getDatesFromTodayToEndOfNextMonth,
+} from "@/clientHelperfunction";
+
+type FormInputs = {
+  fullname: string;
+  email: string;
+  phoneNumber: string;
+  gender: string;
+  date: string;
+  time: string;
+  doctor: string;
+  department: string;
+  message: string;
+};
 
 const AppointmentForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    gender: "",
-    date: "",
-    time: "",
-    doctor: "",
-    department: "",
-    message: "",
-  });
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormInputs>();
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState({ email: "" });
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const validateEmail = (email: string) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const isValidEmail = validateEmail(formData.email);
-    if (!isValidEmail) {
-      setErrors({ email: "Please enter a valid email address." });
-      return;
-    }
-    setErrors({ email: "" });
-    setSubmitted(true);
-
-    toast.success("Appointment Booked Successfully.", {
-      style: {
-        background: "green",
-        color: "white",
-      },
-    });
-    await handleServer(formData);
-  };
-
-  const timeSlots = [
-    "9:00 AM",
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "1:00 PM",
-    "2:00 PM",
-    "3:00 PM",
-    "4:00 PM",
-    "5:00 PM",
-  ];
   const doctors = ["Dr. Smith", "Dr. Jones", "Dr. Brown"];
   const departments = ["Cardiology", "Pediatrics", "Neurology"];
   const genders = ["Male", "Female", "Other"];
 
-  const dates2025 = Array.from({ length: 365 }, (_, i) => {
-    const date = new Date(2025, 0, i + 1);
-    return date.toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    });
-  });
+  const dates2025 = getDatesFromTodayToEndOfNextMonth();
+  const timeSlots = generateTimeSlots();
 
-  const readExcelSheetData = async () => {
-    const res = await fetch("/api/excel/");
-    const arrayBuffer = await res.arrayBuffer();
-    const workbook = read(arrayBuffer, { type: "array" });
+  // Submitting the form and API call to POST data in SpreadSheet
+  const onSubmit = async (data: FormInputs) => {
+    try {
+      toast.success("Appointment Booked Successfully.", {
+        style: { background: "green", color: "white" },
+      });
+      await handleServer(data);
 
-    let worksheets = workbook.SheetNames.map((sheetName) => {
-      return {
-        sheetName,
-        data: utils.sheet_to_json(workbook.Sheets[sheetName]),
-      };
-    });
+      setSubmitted(true);
+      reset(); // reset form fields
+    } catch (error) {
+      toast.error("Failed to book appointment.");
+    }
   };
-
-  useEffect(() => {
-    readExcelSheetData();
-  }, []);
 
   return (
     <div>
       <div className="relative w-full form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30">
-        {!submitted ? (
-          <form
-            onSubmit={handleSubmit}
-            className="h-full flex flex-col justify-between"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="h-full flex flex-col justify-between"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="flex flex-col">
               <input
+                {...register("fullname", {
+                  required: "Full Name is required",
+                })}
                 type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
+                placeholder="Enter Full Name"
                 className="p-2 rounded text-white"
-                required
               />
-              <div className="flex flex-col">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="p-2 rounded text-white"
-                  required
-                />
-                {errors.email && (
-                  <p className="text-red-400 text-xs mt-1">{errors.email}</p>
-                )}
-              </div>
+              {errors.fullname && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.fullname.message}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-col">
               <input
-                type="tel"
-                name="phone"
-                placeholder="Your Phone"
-                value={formData.phone}
-                onChange={handleChange}
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Invalid email address",
+                  },
+                })}
+                type="email"
+                placeholder="Your Email"
                 className="p-2 rounded text-white"
-                required
               />
+              {errors.email && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-col">
+              <input
+                {...register("phoneNumber", {
+                  required: "Phone number is required",
+                  pattern: {
+                    value: /^(\+92|0)3\d{9}$/,
+                    message:
+                      "Invalid Pakistani phone number. Example: +923001234567 or 03001234567",
+                  },
+                })}
+                type="tel"
+                placeholder="Your Phone"
+                className="p-2 rounded text-white"
+              />
+              {errors.phoneNumber && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.phoneNumber.message}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-col">
               <select
-                name="gender"
-                value={formData.gender}
-                onChange={handleChange}
+                {...register("gender", { required: "Please select gender" })}
                 className="p-2 rounded text-white [&>option]:text-black"
-                required
               >
                 <option value="">Select Gender</option>
                 {genders.map((g) => (
@@ -148,96 +130,109 @@ const AppointmentForm = () => {
                   </option>
                 ))}
               </select>
+              {errors.gender && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.gender.message}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-col">
               <select
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
+                {...register("date", { required: "Please select a date" })}
                 className="p-2 rounded text-white [&>option]:text-black"
-                required
               >
-                <option value="">Date</option>
+                <option value="">Select Date</option>
                 {dates2025.map((d) => (
                   <option key={d} value={d}>
                     {d}
                   </option>
                 ))}
               </select>
+              {errors.date && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.date.message}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-col">
               <select
-                name="time"
-                value={formData.time}
-                onChange={handleChange}
+                {...register("time", { required: "Please select a time" })}
                 className="p-2 rounded text-white [&>option]:text-black"
-                required
               >
-                <option value="">Time</option>
+                <option value="">Select Time</option>
                 {timeSlots.map((t) => (
                   <option key={t} value={t}>
                     {t}
                   </option>
                 ))}
               </select>
+              {errors.time && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.time.message}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-col">
               <select
-                name="doctor"
-                value={formData.doctor}
-                onChange={handleChange}
+                {...register("doctor", {
+                  required: "Please select a doctor",
+                })}
                 className="p-2 rounded text-white [&>option]:text-black"
-                required
               >
-                <option value="">Doctor</option>
+                <option value="">Select Doctor</option>
                 {doctors.map((d) => (
                   <option key={d} value={d}>
                     {d}
                   </option>
                 ))}
               </select>
+              {errors.doctor && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.doctor.message}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-col">
               <select
-                name="department"
-                value={formData.department}
-                onChange={handleChange}
+                {...register("department", {
+                  required: "Please select a department",
+                })}
                 className="p-2 rounded text-white [&>option]:text-black"
-                required
               >
-                <option value="">Department</option>
+                <option value="">Select Department</option>
                 {departments.map((dep) => (
                   <option key={dep} value={dep}>
                     {dep}
                   </option>
                 ))}
               </select>
+              {errors.department && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.department.message}
+                </p>
+              )}
             </div>
-            <div className="pt-2 space-y-2">
-              <textarea
-                name="message"
-                placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={2}
-                className="w-full p-2 rounded text-white resize-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className={`${work_sans.className} bg-blue-300 opacity-85 text-[15px] cursor-pointer hover:opacity-90 transition
-               duration-300 text-black uppercase font-semibold py-2 text-base rounded mt-17`}
-            >
-              Submit
-            </button>
-          </form>
-        ) : (
-          <div className="text-center text-white flex flex-col justify-center h-full">
-            <h3 className="text-xl font-bold mb-2">
-              Appointment Request Sent!
-            </h3>
-            <p>We will get back to you shortly.</p>
-            <button
-              onClick={() => setSubmitted(false)}
-              className="mt-4 bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded"
-            >
-              Edit Appointment
-            </button>
           </div>
-        )}
+
+          <div className="pt-2 space-y-2">
+            <textarea
+              {...register("message")}
+              placeholder="Message"
+              rows={2}
+              className="w-full p-2 rounded text-white resize-none"
+            />
+          </div>
+
+          <input
+            type="submit"
+            value="Book Appointment"
+            className={`${work_sans.className} bg-blue-500 text-white cursor-pointer hover:bg-blue-600 hover:opacity-100 transition duration-300 uppercase font-semibold py-2 text-base rounded mt-6`}
+          />
+        </form>
       </div>
     </div>
   );
