@@ -28,10 +28,10 @@ const AppointmentForm = ({
   right,
   width,
 }: {
-  postion: string;
-  top: string;
-  right: string;
-  width: string;
+  postion?: string;
+  top?: string;
+  right?: string;
+  width?: string;
 }) => {
   const {
     register,
