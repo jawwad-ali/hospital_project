@@ -1,17 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { yeseva, specialtiesWithIcon } from "@/data";
+import { yeseva, specialtiesWithIcon, work_sans } from "@/data";
 
 export default function OurSpecialties() {
   return (
     <section className="w-full py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         {/* Heading */}
-        <h2 className="text-3xl md:text-6xl font-bold text-center text-black mb-5">
+        <h2 className={`${work_sans.className} text-3xl md:text-6xl font-bold text-center text-black mb-5`}>
           HOW CAN WE HELP YOU
         </h2>
-        <h2 className="text-3xl md:text-xl font-bold text-center text-blue-600 mb-5">
+        <h2 className={`text-3xl ${work_sans.className} md:text-xl font-bold text-center text-blue-600 mb-5`}>
           ALWAYS CARING
         </h2>
         <h2
