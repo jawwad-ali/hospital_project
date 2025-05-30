@@ -2,13 +2,16 @@
 
 import Image from "next/image";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { actionButtons, ibm_plex_sans } from "@/data";
 
 const HeroSection = () => {
   return (
     <section className="px-4 py-20 bg-white font-sans">
       {/* Top Banner */}
       <div className="text-center max-w-4xl mx-auto mb-20">
-        <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 whitespace-nowrap overflow-hidden text-ellipsis w-full">
+        <h1
+          className={` ${ibm_plex_sans.className} text-3xl md:text-5xl font-bold text-black mb-4 leading-12 lg:leading-16`}
+        >
           WELCOME TO AZIZA HUSSEINI HOSPITAL
         </h1>
 
@@ -21,15 +24,50 @@ const HeroSection = () => {
           tortor augue. Velit nascetur proin massa in. Consequat faucibus
           porttitor enim et.
         </p>
-        <button className="inline-flex items-center text-blue-400 hover:text-blue-800  text-2xl transition">
+        {/* <button className="inline-flex items-center text-blue-400 hover:text-blue-800  text-2xl transition">
           Learn More <ArrowRight className="ml-2 w-4 h-4" />
-        </button>
+        </button> */}
+      </div>
+
+      <div className="max-w-4xl mx-auto mb-20">
+        {/* Action Buttons Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {actionButtons.map((button, index) => {
+            const IconComponent = button.icon;
+            return (
+              <a
+                key={index}
+                href={button.href}
+                className={`${button.bgColor} ${button.hoverColor} text-white rounded-lg p-6 md:p-6 flex items-center justify-between transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 group`}
+                role="button"
+                tabIndex={0}
+                aria-label={`Navigate to ${button.title}`}
+              >
+                {/* Text Content */}
+                <div className="flex-1">
+                  <h3
+                    className={`${button.color}  flex-shrink-0 font-semibold text-base md:text-lg leading-tight`}
+                  >
+                    {button.title}
+                  </h3>
+                </div>
+
+                {/* Icon */}
+                <div className="ml-4 flex-shrink-0">
+                  <div className="bg-white bg-opacity-20 p-3 rounded-lg group-hover:bg-opacity-30 transition-all duration-300">
+                    <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-black" />
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div>
 
       {/* Visual & Why Choose Us Section */}
       <div className="flex flex-col lg:flex-row justify-center items-start gap-10 px-4 lg:px-20">
         {/* Image with red background */}
-        <div className="relative w-full max-w-md lg:max-w-lg">
+        <div className="relative w-full lg:max-w-lg">
           <div className="absolute inset-0 bg-red-700 rounded-2xl -left-6 -top-6 w-full h-full z-0" />
           <Image
             src="/Rectangle 11.jpg"

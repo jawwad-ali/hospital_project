@@ -7,7 +7,7 @@ const TopNavbarInfo = () => {
   return (
     <div>
       <div className="bg-white py-2 border-b">
-        <div className="container max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div className="container max-w-5xl mx-auto flex flex-col md:flex-row lg:justify-between lg:items-center">
           <div className="flex lg:items-center">
             <div className="p-2 rounded-md lg:ml-10">
               <Image

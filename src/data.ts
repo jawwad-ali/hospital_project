@@ -1,6 +1,10 @@
-import { Phone, MapPin, Mail, Clock } from "lucide-react";
-import { Work_Sans } from "next/font/google";
-import { Yeseva_One } from "next/font/google";
+import { Calendar, Users,Phone, MapPin, Mail, Clock } from "lucide-react";
+import { IBM_Plex_Sans, Work_Sans, Yeseva_One } from "next/font/google";
+
+export const ibm_plex_sans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const yeseva = Yeseva_One({
   subsets: ["latin"],
@@ -71,7 +75,13 @@ export const features = [
   { text: "A Legacy of Excellence" },
 ];
 
-export const tableHeadings = ['Doctors Name', 'Department', 'Degree', 'Timings', 'Days']
+export const tableHeadings = [
+  "Doctors Name",
+  "Department",
+  "Degree",
+  "Timings",
+  "Days",
+];
 
 export const doctorSchedule = [
   {
@@ -175,14 +185,15 @@ export const doctorSchedule = [
   {
     name: "DR. SYED DANISH ALI",
     department: "ORTHOPEDIC SURGEON",
-    degree: "MBBS, FCPS (ORTHO), MRCP(S) (GLASGOW), FELLOWSHIP (ILIZAROV-RUSSIA)",
+    degree:
+      "MBBS, FCPS (ORTHO), MRCP(S) (GLASGOW), FELLOWSHIP (ILIZAROV-RUSSIA)",
     timings: ["8:00 PM TO 10:00 PM"],
     days: "MONDAY & WEDNESDAY",
   },
   {
     name: "ASSOCIATE PROF. PAF BASE FAISAL", // This seems to be part of Dr. Syed Danish Ali's entry or a separate entity without a clear doctor name. Assuming it's related to Dr. Syed Danish Ali based on proximity and formatting, but clarification might be needed. For now, creating a separate entry as the structure implies a new individual or role.
     department: "", // No department specified, might be implicitly Orthopedic or a general title
-    degree: "",    // No degree specified
+    degree: "", // No degree specified
     timings: ["5:00 PM TO 6:00 PM"],
     days: "TUESDAY, THURSDAY, FRIDAY",
   },
@@ -199,7 +210,7 @@ export const doctorSchedule = [
     degree: "DPT",
     timings: ["6:00 PM TO 9:00 PM"],
     days: "MONDAY TO SATURDAY",
-  }
+  },
 ];
 
 export const contactDetails = [
@@ -219,7 +230,6 @@ export const importantLinks = [
   "About Us",
 ];
 
-
 export const doctors = [
   {
     name: "Doctor's Name",
@@ -236,7 +246,7 @@ export const doctors = [
     specialty: "NEUROLOGY",
     imageUrl: "/DoctorImage3.jpg",
   },
-]
+];
 
 export const specialtiesWithIcon = [
   { title: "Neurology", icon: "/heart.jpg" },
@@ -261,4 +271,30 @@ export const scheduleHours = [
   { day: "Friday", hours: "09:00 AM - 07:00 PM" },
   { day: "Saturday", hours: "09:00 AM - 07:00 PM" },
   { day: "Sunday", hours: "Closed" },
+];
+
+
+export const actionButtons = [
+  {
+    title: "Book an Appointment",
+    icon: Calendar,
+    bgColor: "bg-[#0387B3]",
+    hoverColor: "hover:bg-teal-700",
+    href: "/contact",
+  },
+  {
+    title: "Book an Consultant",
+    icon: Users,
+    bgColor: "bg-[#BFD2F8]",
+    hoverColor: "hover:bg-purple-400",
+    href: "/consultant",
+    color: 'text-[#1F2B6C]'
+  },
+  {
+    title: "Urgent Care 24/7",
+    icon: Clock,
+    bgColor: "bg-[#159EEC]",
+    hoverColor: "hover:bg-blue-600",
+    href: "#footer",
+  },
 ]

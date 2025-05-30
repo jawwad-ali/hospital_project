@@ -10,7 +10,7 @@ import { contactDetails, importantLinks } from "@/data";
 
 export default function Footer() {
   return (
-    <footer className={`bg-[#090909] ${work_sans.className} text-white`}>
+    <footer className={`bg-[#090909] ${work_sans.className} text-white`} id='footer'>
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Responsive Grid Layout */}
