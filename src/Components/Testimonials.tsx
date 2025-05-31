@@ -5,6 +5,8 @@ import TestimonialsImage from "../../public/testimonials.png";
 import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import Quote from "../../public/Vector.png";
+import { work_sans } from "@/data";
 
 const testimonials = [
   {
@@ -19,7 +21,7 @@ const testimonials = [
   },
   {
     quote:
-      "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare. Quisque placerat scelerisque felis vitae tortor augue. Velit nascetur Consequat faucibus porttitor enim et.",
     author: "Alex Johnson",
   },
 ];
@@ -64,19 +66,17 @@ export default function Testimonials() {
           <div
             key={idx}
             style={{ width: "100%" }}
-            className="keen-slider__slide flex flex-col items-center justify-center text-center h-full"
+            className={`${work_sans.className} keen-slider__slide flex flex-col items-center justify-center text-center h-full`}
           >
-            <div className="text-6xl md:text-7xl lg:text-8xl text-white/60 mb-6">
-              &quot;
-            </div>
+            <Image src={Quote} alt="Quote" className="mb-10" />
 
             <blockquote className="text-white max-w-4xl mb-8">
-              <p className="text-sm  md:text-xl lg:text-2xl  leading-relaxed font-light">
+              <p className="text-sm  md:text-xl lg:text-2xl px-2 md:px-0  leading-relaxed font-light">
                 {quote}
               </p>
             </blockquote>
-
-            <cite className="text-white text-lg md:text-xl mt-3 font-medium not-italic mb-6">
+            <div className="h-px w-[25%] bg-gray-300"></div>
+            <cite className="text-white pt-2 text-lg md:text-xl mt-3 font-medium not-italic mb-6">
               {author}
             </cite>
           </div>

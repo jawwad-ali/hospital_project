@@ -32,7 +32,7 @@ export default function DoctorSearchBar() {
   ];
 
   return (
-    <div className="w-full lg:w-10/12 lg:py-6 lg:mx-10">
+    <div className="w-full lg:w-10/12 lg:py-6">
       <form onSubmit={handleSearch}>
         <div className="bg-white lg:rounded-full rounded-md shadow-lg w-full py-2 px-4">
           {/* Container for desktop: flex row, mobile: stacked */}

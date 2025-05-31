@@ -17,12 +17,12 @@ const ScheduleHours = () => {
               key={index}
               className="flex justify-between items-center py-2"
             >
-              <span className="text-gray-300 font-medium">{schedule.day}</span>
+              <span className="text-gray-300 font-medium w-[50px]">{schedule.day}</span>
               <span className="text-gray-400 h-[1px] w-8 bg-slate-300 hidden md:block" />
               <div className="flex items-center space-x-4">
                 <span
-                  className={`flex-shrink-0 text-sm ${
-                    schedule.hours === "Closed" ? "text-gray-400" : "text-white"
+                  className={`flex-shrink-0 text-sm w-[150px] ${
+                    schedule.hours === "Closed" ? "text-gray-400 text-center" : "text-white"
                   }`}
                 >
                   {schedule.hours}

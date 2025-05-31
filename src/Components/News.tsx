@@ -44,7 +44,7 @@ export default function NewsSection() {
   ]
 
   return (
-    <section className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
+    <section id="news" className="py-16 px-6 md:px-12 lg:px-24 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
