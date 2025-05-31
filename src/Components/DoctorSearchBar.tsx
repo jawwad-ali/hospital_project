@@ -87,7 +87,7 @@ export default function DoctorSearchBar() {
                   onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
                 >
                   <span className="text-black mr-2">
-                    <MapPin className="mr-2 h-4 w-4" />
+                    <MapPin className="mr-2 h-4 w-4" /> 
                   </span>
                   <input
                     type="text"
