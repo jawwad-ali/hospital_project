@@ -2,8 +2,8 @@ import { actionButtons } from "@/data";
 
 const HeroSectionActions = () => {
   return (
-    <div className=" w-full px-5 lg:flex lg:items-center lg:justify-center lg:mx-auto lg:mb-20 mb-10 lg:-mt-10 mt-10 relative lg:absolute z-20">
-      <div className="grid items-center justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+    <div className=" w-full px-5 lg:flex lg:items-center lg:justify-center lg:mx-auto lg:mb-20 mb-10 lg:-mt-10 mt-16 relative lg:absolute z-20">
+      <div className="grid items-center justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6">
         {actionButtons.map((button, index) => {
           const IconComponent = button.icon;
           return (
