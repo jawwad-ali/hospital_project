@@ -1,14 +1,48 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, CheckCircle } from "lucide-react";
-import { actionButtons, ibm_plex_sans } from "@/data";
+import { actionButtons, ibm_plex_sans, work_sans, poppins } from "@/data";
+import DoctorSearchBar from "./DoctorSearchBar";
+import HeroSectionActions from "./HeroSectionActions";
+import ChoosingUs from "./ChoosingUs";
 
 const HeroSection = () => {
   return (
-    <section className="px-4 py-20 bg-white font-sans">
-      {/* Top Banner */}
-      <div className="text-center max-w-4xl mx-auto mb-20">
+    <section className="bg-white font-sans">
+      {/* hero Section */}
+      <div className="relative h-[82dvh] bg-gray-800 text-white">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/hos banner 1.jpg"
+            alt="Hospital Building"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+        </div>
+        <div className="container mx-auto pl-4 pb-16 pt-4 lg:ml-16 relative z-10">
+          <div className="max-w-2xl mx-3 lg:mx-0 mt-12">
+            <p
+              className={`${work_sans.className} text-lg lg:text-3xl mb-4`}
+              style={{ letterSpacing: "0.3em" }}
+            >
+              CARING FOR LIFE
+            </p>
+            <h1
+              className={`${poppins.className} text-[42px] leading-12 lg:leading-18 md:text-6xl font-bold mb-8 tracking-wide`}
+            >
+              Leading the Way in Medical Excellence
+            </h1>
+
+            <DoctorSearchBar />
+          </div>
+        </div>
+      </div>
+
+      <HeroSectionActions />
+
+      {/* Bottom Banner */}
+      <div className="relative mt-20 lg:mt-36 text-center max-w-4xl mx-auto mb-20">
         <h1
           className={` ${ibm_plex_sans.className} text-3xl md:text-5xl font-bold text-black mb-4 leading-12 lg:leading-16`}
         >
@@ -24,49 +58,9 @@ const HeroSection = () => {
           tortor augue. Velit nascetur proin massa in. Consequat faucibus
           porttitor enim et.
         </p>
-        {/* <button className="inline-flex items-center text-blue-400 hover:text-blue-800  text-2xl transition">
-          Learn More <ArrowRight className="ml-2 w-4 h-4" />
-        </button> */}
       </div>
 
-      <div className="max-w-4xl mx-auto mb-20">
-        {/* Action Buttons Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {actionButtons.map((button, index) => {
-            const IconComponent = button.icon;
-            return (
-              <a
-                key={index}
-                href={button.href}
-                className={`${button.bgColor} ${button.hoverColor} text-white rounded-lg p-6 md:p-6 flex items-center justify-between transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 group`}
-                role="button"
-                tabIndex={0}
-                aria-label={`Navigate to ${button.title}`}
-              >
-                {/* Text Content */}
-                <div className="flex-1">
-                  <h3
-                    className={`${button.color}  flex-shrink-0 font-semibold text-base md:text-lg leading-tight`}
-                  >
-                    {button.title}
-                  </h3>
-                </div>
-
-                {/* Icon */}
-                <div className="ml-4 flex-shrink-0">
-                  <div className="bg-white bg-opacity-20 p-3 rounded-lg group-hover:bg-opacity-30 transition-all duration-300">
-                    <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-black" />
-                  </div>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Visual & Why Choose Us Section */}
       <div className="flex flex-col lg:flex-row justify-center items-start gap-10 px-4 lg:px-20">
-        {/* Image with red background */}
         <div className="relative w-full lg:max-w-lg">
           <div className="absolute inset-0 bg-red-700 rounded-2xl -left-6 -top-6 w-full h-full z-0" />
           <Image
@@ -78,30 +72,7 @@ const HeroSection = () => {
           />
         </div>
 
-        {/* Why You Choose Us */}
-        <div className="w-full max-w-xl">
-          <h3 className="text-2xl md:text-5xl font-bold text-gray-800 mb-6">
-            Why You Choose Us?
-          </h3>
-          <ul className="space-y-4 mb-6">
-            {Array(4)
-              .fill(null)
-              .map((_, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-gray-700"
-                >
-                  <CheckCircle className="text-green-500 w-5 h-5 mt-1" />
-                  <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </span>
-                </li>
-              ))}
-          </ul>
-          <button className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition">
-            Learn More <ArrowRight className="ml-2 w-4 h-4" />
-          </button>
-        </div>
+        <ChoosingUs />
       </div>
     </section>
   );

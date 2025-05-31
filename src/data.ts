@@ -1,5 +1,15 @@
-import { Calendar, Users,Phone, MapPin, Mail, Clock } from "lucide-react";
-import { IBM_Plex_Sans, Work_Sans, Yeseva_One } from "next/font/google";
+import { Calendar, Users, Phone, MapPin, Mail, Clock } from "lucide-react";
+import {
+  IBM_Plex_Sans,
+  Work_Sans,
+  Yeseva_One,
+  Poppins,
+} from "next/font/google";
+
+export const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const ibm_plex_sans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -273,7 +283,6 @@ export const scheduleHours = [
   { day: "Sunday", hours: "Closed" },
 ];
 
-
 export const actionButtons = [
   {
     title: "Book an Appointment",
@@ -288,7 +297,7 @@ export const actionButtons = [
     bgColor: "bg-[#BFD2F8]",
     hoverColor: "hover:bg-purple-400",
     href: "/consultant",
-    color: 'text-[#1F2B6C]'
+    color: "text-[#1F2B6C]",
   },
   {
     title: "Urgent Care 24/7",
@@ -297,4 +306,4 @@ export const actionButtons = [
     hoverColor: "hover:bg-blue-600",
     href: "#footer",
   },
-]
+];

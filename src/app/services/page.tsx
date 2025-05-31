@@ -1,13 +1,13 @@
 import Banner from "@/Components/Banner"
 import OurServicesBanner from "../../../public/about_us_banner.png";
-import Specialization from "@/Components/Spcialization";
 import Contacts from "@/Components/Contacts";
+import OurSpecialties from "@/Components/OurSpecailist";
 
 const Services = () => {
   return (
     <div>
         <Banner overlayText="Our Services" img={OurServicesBanner} />
-        <Specialization />
+        <OurSpecialties />
         {/* Slider Pending */}
         <Contacts />
     </div>
