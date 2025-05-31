@@ -3,7 +3,7 @@
 import type React from "react";
 
 import { useState } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import { Search, ChevronDown, PersonStanding, CircleUser, Pin, MapPin } from "lucide-react";
 
 export default function DoctorSearchBar() {
   const [doctorName, setDoctorName] = useState("");
@@ -45,6 +45,7 @@ export default function DoctorSearchBar() {
               >
                 <span className="text-black mr-2">
                   {/* Doctor icon SVG here */}
+                  <CircleUser className="mr-2 h-4 w-4" />
                 </span>
                 <input
                   type="text"
@@ -86,7 +87,7 @@ export default function DoctorSearchBar() {
                   onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}
                 >
                   <span className="text-black mr-2">
-                    {/* Location icon SVG here */}
+                    <MapPin className="mr-2 h-4 w-4" />
                   </span>
                   <input
                     type="text"
