@@ -112,15 +112,15 @@ export const doctorSchedule = [
     name: "DR. ANJUM SAMI",
     department: "GYNAECOLOGIST",
     degree: "MBBS, MCPS, MAIM U/S",
-    timings: ["1:00 PM TO 3:00 PM"],
-    days: "MONDAY",
+    timings: ["1:00 PM TO 3:00 PM", "3:00 PM to 4:00 PM"],
+    days: "MONDAY, WEDNESDAY, FRIDAY",
   },
   {
     name: "DR. RASHK E ERUM",
     department: "GYNAECOLOGIST",
     degree: "MBBS, MCPS",
     timings: ["6:00 PM TO 8:00 PM", "4:00 PM TO 5:00 PM"],
-    days: "MONDAY, WEDNESDAY, FRIDAY",
+    days: "TUESDAY, THURSDAY, SATURDAY",
   },
   {
     name: "DR. MUNAZZA FARAZ",
@@ -134,20 +134,20 @@ export const doctorSchedule = [
     department: "GYNAECOLOGIST",
     degree: "MBBS, FCPS",
     timings: ["5:00 PM TO 7:00 PM"],
-    days: "FRIDAY, SUNDAY",
+    days: "FRIDAY & SUNDAY",
   },
-  {
-    name: "DR. NOORUSH SHAMMI",
-    department: "GYNAECOLOGIST",
-    degree: "MBBS, MCPS, MRCOG",
-    timings: ["8:00 PM TO 10:00 PM"],
-    days: "TUESDAY, THURSDAY, SATURDAY",
-  },
+  // {
+  //   name: "DR. NOORUSH SHAMMI",
+  //   department: "GYNAECOLOGIST",
+  //   degree: "MBBS, MCPS, MRCOG",
+  //   timings: ["8:00 PM TO 10:00 PM"],
+  //   days: "TUESDAY, THURSDAY, SATURDAY",
+  // },
   {
     name: "DR. SYED FASAHATULLAH",
     department: "PEDIATRICIAN",
     degree: "MBBS, DCH",
-    timings: ["1:00 PM TO 3:00 PM"],
+    timings: ["1:00 PM TO 4:00 PM"],
     days: "MONDAY TO SATURDAY",
   },
   {
@@ -161,7 +161,7 @@ export const doctorSchedule = [
     name: "DR. SHAHID ANSARI",
     department: "PEDIATRICIAN",
     degree: "MBBS, DCH",
-    timings: ["1:00 PM TO 3:00 PM"],
+    timings: ["11:00 AM TO 1:00 PM"],
     days: "MONDAY TO SATURDAY",
   },
   {
@@ -171,26 +171,26 @@ export const doctorSchedule = [
     timings: ["12:00 NOON TO 1:00 PM"],
     days: "MONDAY TO SATURDAY",
   },
-  {
-    name: "DR. IMRAN AWAN",
-    department: "GENERAL PHYSICIAN",
-    degree: "MBBS, MCPS",
-    timings: ["12:00 PM TO 8:00 PM"],
-    days: "MONDAY TO SATURDAY",
-  },
+  // {
+  //   name: "DR. IMRAN AWAN",
+  //   department: "GENERAL PHYSICIAN",
+  //   degree: "MBBS, MCPS",
+  //   timings: ["12:00 PM TO 8:00 PM"],
+  //   days: "MONDAY TO SATURDAY",
+  // },
   {
     name: "DR. SIDRA MASOOM",
     department: "GENERAL SURGEON",
     degree: "MBBS, FCPS, ASSISTANT PROFESSOR DOW UNIVERSITY",
-    timings: ["7:00 PM TO 9:00 PM"],
-    days: "WEDNESDAY, SATURDAY",
+    timings: ["8:00 PM TO 9:00 PM"],
+    days: "WEDNESDAY & SATURDAY",
   },
   {
     name: "DR. AISHA SIDDIQUA",
     department: "GENERAL SURGEON",
     degree: "MBBS, FCPS",
     timings: ["7:00 PM TO 8:00 PM"],
-    days: "MONDAY, TUESDAY, THURSDAY, FRIDAY",
+    days: "MONDAY, TO FRIDAY",
   },
   {
     name: "DR. SYED DANISH ALI",
@@ -198,15 +198,15 @@ export const doctorSchedule = [
     degree:
       "MBBS, FCPS (ORTHO), MRCP(S) (GLASGOW), FELLOWSHIP (ILIZAROV-RUSSIA)",
     timings: ["8:00 PM TO 10:00 PM"],
-    days: "MONDAY & WEDNESDAY",
+    days: "MONDAY TO FRIDAY",
   },
-  {
-    name: "ASSOCIATE PROF. PAF BASE FAISAL", // This seems to be part of Dr. Syed Danish Ali's entry or a separate entity without a clear doctor name. Assuming it's related to Dr. Syed Danish Ali based on proximity and formatting, but clarification might be needed. For now, creating a separate entry as the structure implies a new individual or role.
-    department: "", // No department specified, might be implicitly Orthopedic or a general title
-    degree: "", // No degree specified
-    timings: ["5:00 PM TO 6:00 PM"],
-    days: "TUESDAY, THURSDAY, FRIDAY",
-  },
+  // {
+  //   name: "ASSOCIATE PROF. PAF BASE FAISAL", // This seems to be part of Dr. Syed Danish Ali's entry or a separate entity without a clear doctor name. Assuming it's related to Dr. Syed Danish Ali based on proximity and formatting, but clarification might be needed. For now, creating a separate entry as the structure implies a new individual or role.
+  //   department: "", // No department specified, might be implicitly Orthopedic or a general title
+  //   degree: "", // No degree specified
+  //   timings: ["5:00 PM TO 6:00 PM"],
+  //   days: "TUESDAY, THURSDAY, FRIDAY",
+  // },
   {
     name: "DR. UNZA SHAIKH",
     department: "PLASTIC SURGEON",
