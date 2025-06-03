@@ -65,7 +65,6 @@ const AppointmentForm = ({
 
   return (
     <div>
-      {/* <div className={`${postion} top-0 w-[25%] w-full form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30`}> */}
       <div
         className={`relative ${postion} ${top} ${width} ${right} form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30`}
       >
@@ -238,6 +237,11 @@ const AppointmentForm = ({
               rows={2}
               className="w-full p-2 rounded text-white resize-none"
             />
+            {/* {errors.message && (
+              <p className="text-red-400 text-sm mt-1" role="alert">
+                {errors.message.message}
+              </p>
+            )} */}
           </div>
 
           <input

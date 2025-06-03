@@ -33,19 +33,19 @@ export const navbarInfoItem = [
     id: 1,
     Icon: Phone,
     title: "EMERGENCY",
-    value: "(237) 681-812-255",
+    value: "021 36360526",
   },
   {
     id: 2,
     Icon: Clock,
     title: "WORK HOUR",
-    value: "09:00 - 20:00 Everyday",
+    value: "09:00 - 19:00 Everyday",
   },
   {
     id: 3,
     Icon: MapPin,
     title: "LOCATION",
-    value: "0123 Some Place",
+    value: "C-52'13, FB Area, Kar.ichli-75950.Pakistan",
   },
 ];
 
@@ -54,13 +54,13 @@ export const contactData = [
     id: 1,
     icon: Phone,
     title: "EMERGENCY",
-    details: ["(237) 681-812-255", "(237) 666-331-894"],
+    details: ["02136360526", "02136806905"],
   },
   {
     id: 2,
     icon: MapPin,
     title: "LOCATION",
-    details: ["0123 Some place", "9876 Some country"],
+    details: ["C-52'13, FB Area, Kar.ichli-75950.Pakistan"],
   },
   {
     id: 3,
@@ -224,12 +224,12 @@ export const doctorSchedule = [
 ];
 
 export const contactDetails = [
-  { type: "EMERGENCY", label: "Call:", details: ["(237) 681-812-255"] },
+  { type: "EMERGENCY", label: "Call:", details: ["02136360526"] },
   { type: "EMAIL", label: "Email:", details: ["fildineeesoe@gmail.com"] },
   {
     type: "ADDRESS",
     label: "Address:",
-    details: ["0123 Some place", "Karachi, Pakistan"],
+    details: ["C-52'13, FB Area, Kar.ichli-75950.Pakistan"],
   },
 ];
 

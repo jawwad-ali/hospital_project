@@ -11,18 +11,18 @@ export default function Footer() {
     >
       {/* Main Footer Content */}
       <div className="lg:mx-14">
-        <div className="max-w-7xl mx-auto px-4 py-12 ">
+        <div className="max-w-7xl mx-auto px-4 py-12">
           {/* Responsive Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Company Description */}
-            <div className="lg:col-span-1 flex justify-center items-center text-center">
+            <div className="lg:col-span-1 flex font-bold my-auto lg:text-center">
               <p className="text-gray-300 text-sm md:text-base leading-relaxed">
                 Leading the Way in Medical Excellence, Trusted Care.
               </p>
             </div>
 
             {/* Important Links */}
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 lg:text-center">
               <h3 className={`text-white font-semibold text-lg mb-6`}>
                 Important Links
               </h3>
@@ -62,7 +62,7 @@ export default function Footer() {
             </div>
 
             {/* Newsletter */}
-            <div className="lg:col-span-1">
+            {/* <div className="lg:col-span-1">
               <h3 className={`text-white font-semibold text-lg mb-6`}>
                 Newsletter
               </h3>
@@ -76,7 +76,7 @@ export default function Footer() {
                   <Send className="w-4 h-4" />
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

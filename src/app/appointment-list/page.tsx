@@ -1,6 +1,6 @@
 import AppointmentListComponent from "@/Components/AppointmentList";
 
-const AppointmentLists = async () => {
+const AppointmentLists = () => {
   return <AppointmentListComponent />;
 };
 

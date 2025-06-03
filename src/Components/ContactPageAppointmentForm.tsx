@@ -3,8 +3,6 @@ import { yeseva, work_sans } from "@/data";
 import ScheduleHours from "./ScheduleHours";
 import axios from "axios";
 
-const url = process.env.EXCEL_SHEET
-
 const ContactPageAppointmentForm = () => {
 
   return (

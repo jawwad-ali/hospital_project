@@ -4,6 +4,7 @@ import { Trash2 } from "lucide-react";
 import { deleteRow, fetchSheetData } from "../../src/app/server";
 import { Toaster } from "@/Components/ui/sonner";
 import { toast } from "sonner";
+import { Spinner } from "../Components/ui/spinner";
 
 const AppointmentListComponent = () => {
   const [paitentsList, setData] = useState<any[][]>([]);
@@ -18,7 +19,8 @@ const AppointmentListComponent = () => {
   }, []);
 
   //   Early Return
-  if (!paitentsList || paitentsList.length === 0) return <p>No Data found.</p>;
+  if (!paitentsList || paitentsList.length === 0)
+    return <Spinner size="sm" className="bg-black dark:bg-white" />;
 
   // Extract headers (first row)
   const headers = paitentsList[0];
@@ -35,7 +37,7 @@ const AppointmentListComponent = () => {
       toast.error("Data Deleted Successfully.", {
         style: {
           background: "red",
-          color: 'white'
+          color: "white",
         },
       });
     } else {
@@ -43,30 +45,69 @@ const AppointmentListComponent = () => {
     }
   }
 
+  // Before rendering, map each row to ensure it has the same length as headers:
+  const normalizedRows = rows.map((row) => {
+    // Create a new row padded with empty strings if length is less than headers
+    const paddedRow = [...row];
+    while (paddedRow.length < headers.length) {
+      paddedRow.push("");
+    }
+    return paddedRow;
+  });
+
+  const NotFound = () => {
+    return (
+      <div className="max-w-6xl mx-auto mt-10">
+        <table className="w-full border-collapse">
+          <thead>
+            <tr>
+              {headers.map((header, idx) => (
+                <th
+                  key={idx}
+                  className="text-left py-4 px-6 font-bold border-b-2 border-red-500 text-gray-800 text-sm tracking-wider uppercase"
+                >
+                  {header}
+                </th>
+              ))}
+              {/* Extra Action header */}
+              <th className="text-left py-4 px-6 font-bold border-b-2 border-red-500 text-gray-800 text-sm tracking-wider uppercase">
+                Action
+              </th>
+            </tr>
+          </thead>
+        </table>
+
+        <div className="max-w-3xl mx-auto text-center h-[50vh] flex items-center justify-center">
+          No Appointments Booked
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div>
-      <div className="max-w-6xl overflow-x-scroll mx-auto p-4">
+      <div className="max-w-6xl min-h-screen overflow-x-scroll mx-auto p-4">
         <table className="table-auto w-full bg-white rounded-lg shadow-sm border border-gray-200">
           <thead>
             <tr>
               {headers.map((header, idx) => (
                 <th
                   key={idx}
-                  className="text-left py-4 px-6 font-semibold border-b-2 border-red-500 text-gray-800 text-sm tracking-wider uppercase"
+                  className="inline-flex flex-shrink-0 text-left py-4 px-6 font-bold border-b-2 border-red-500 text-gray-800 text-sm tracking-wider uppercase"
                 >
                   {header}
                 </th>
               ))}
 
               {/* Add extra Action header */}
-              <th className="text-left py-4 px-6 font-semibold border-b-2 border-red-500 text-gray-800 text-sm tracking-wider uppercase">
+              <th className="text-left py-4 px-6 font-bold border-b-2 border-red-500 text-gray-800 text-sm tracking-wider uppercase">
                 Action
               </th>
             </tr>
           </thead>
 
           <tbody>
-            {rows.map((row, rowIndex) => (
+            {normalizedRows.map((row, rowIndex) => (
               <tr
                 key={rowIndex}
                 className={`border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200 ${
@@ -76,7 +117,7 @@ const AppointmentListComponent = () => {
                 {row.map((cell, cellIndex) => (
                   <td
                     key={cellIndex}
-                    className="py-4 px-6 text-gray-800 font-medium text-sm"
+                    className="py-4 px-6 text-gray-800 font-medium text-sm inline-flex flex-shrink-0"
                   >
                     {cell}
                   </td>

@@ -20,7 +20,7 @@ const HeroSection = () => {
             priority
           />
         </div>
-        <div className="container mx-auto pl-4 pb-16 pt-4 lg:ml-16 relative z-10">
+        <div className="container mx-auto pl-4 pb-16 pt-4 lg:pl-16 relative z-10">
           <div className="max-w-2xl mx-3 lg:mx-0 mt-12">
             <p
               className={`${work_sans.className} text-lg lg:text-3xl mb-4`}
