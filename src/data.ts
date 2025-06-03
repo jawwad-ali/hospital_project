@@ -72,7 +72,7 @@ export const contactData = [
     id: 4,
     icon: Clock,
     title: "WORKING HOURS",
-    details: ["Mon-Sat 09:00-20:00", "Sunday Emergency only"],
+    details: ["Mon-Sat 09:00-19:00", "Sunday Emergency only"],
   },
 ];
 
