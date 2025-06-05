@@ -307,3 +307,26 @@ export const actionButtons = [
     href: "#footer",
   },
 ];
+
+export const choosing_us_bullets = [
+  {
+    title: "24/7 Emergency Care",
+    description: "Health emergencies don’t wait, and neither do we. Our dedicated team is available around the clock to provide immediate and high-quality care—day or night.",
+  },
+  {
+    title: "Highly Experienced Doctors",
+    description: "Our panel of expert doctors brings years of experience, specialization, and compassion to every case. You’re in safe hands, no matter how critical the situation.",
+  },
+  {
+    title: "Advanced Medical Technology",
+    description: "We use the latest diagnostic and treatment equipment to ensure accuracy, safety, and fast recovery.",
+  },
+  {
+    title: "Patient-Centered Approach",
+    description: "We treat every patient with personalized attention, respect, and dignity—because your health and comfort matter to us.",
+  },
+  {
+    title: "Trusted by Thousands",
+    description: "Our hospital is trusted by thousands of patients and families for reliable care, successful treatments, and continuous support.",
+  },
+];

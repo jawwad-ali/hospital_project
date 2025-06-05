@@ -60,8 +60,8 @@ const HeroSection = () => {
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-center items-start gap-10 px-4 lg:px-20">
-        <div className="relative w-full lg:max-w-lg">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-10 px-4 lg:px-20">
+        <div className="relative flex items-center justify-center w-full lg:max-w-lg mx-auto">
           <div className="absolute inset-0 bg-red-700 rounded-2xl -left-6 -top-6 w-full h-full z-0" />
           <Image
             src="/Rectangle 11.jpg"
