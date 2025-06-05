@@ -13,14 +13,13 @@ import { Yeseva_One } from "next/font/google";
 import { useState } from "react";
 import { work_sans } from "@/data";
 
-import FreeCheckUp2 from "../../public/free_checkup_two.png"
-import DNA from "../../public/dna.png"
-import Cardio from "../../public/cardiogram.png"
-import Derma from "../../public/derma.png"
+import FreeCheckUp2 from "../../public/free_checkup_two.png";
+import DNA from "../../public/dna.png";
+import Cardio from "../../public/cardiogram.png";
+import Derma from "../../public/derma.png";
 
-import BloodTest from "../../public/blood_test.png"
-import Ortho from "../../public/ortho.png"
-
+import BloodTest from "../../public/blood_test.png";
+import Ortho from "../../public/ortho.png";
 
 const yeseva = Yeseva_One({
   subsets: ["latin"],
@@ -109,8 +108,8 @@ const ServicesSlider = () => {
         "Always Caring",
       ],
       paragraphs: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra scelerisque tortor, non feugiat eros vestibulum sit amet. Suspendisse potenti. Sed eget facilisis velit. Nulla facilisi. Morbi in diam vehicula, pulvinar sapien sed, iaculis ex.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra scelerisque tortor, non feugiat eros vestibulum sit amet. Suspendisse potenti. Sed eget facilisis velit.",
+        "At our hospital, we believe that every patient deserves the best care, which is why we’re offering a free checkup to all new patients. This is your opportunity to receive a thorough examination, discuss your health concerns, and start your journey toward better health—all at no cost to you.",
+        "Our team of experienced doctors and medical professionals is here to provide personalized care tailored to your unique needs. Whether you’re due for a routine checkup or just looking for expert advice, our free checkup service is the first step toward a healthier future. Don’t wait—take advantage of this limited-time offer and take control of your health today.",
       ],
       image: FreeCheckUp2,
     },
@@ -144,7 +143,7 @@ const ServicesSlider = () => {
         "We focus on treating the whole person, not just the symptoms. Our holistic approach ensures that patients receive comprehensive care that addresses their physical, emotional, and social well-being.",
         "Through our wellness programs and preventive care initiatives, we help patients maintain optimal health and prevent future medical complications.",
       ],
-      image: DNA
+      image: DNA,
     },
   ];
 
