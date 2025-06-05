@@ -11,8 +11,16 @@ import {
 } from "lucide-react";
 import { Yeseva_One } from "next/font/google";
 import { useState } from "react";
-import ServiceSlider from "../../public/checkup.png";
 import { work_sans } from "@/data";
+
+import FreeCheckUp2 from "../../public/free_checkup_two.png"
+import DNA from "../../public/dna.png"
+import Cardio from "../../public/cardiogram.png"
+import Derma from "../../public/derma.png"
+
+import BloodTest from "../../public/blood_test.png"
+import Ortho from "../../public/ortho.png"
+
 
 const yeseva = Yeseva_One({
   subsets: ["latin"],
@@ -57,7 +65,7 @@ const ServicesSlider = () => {
       ),
     },
     {
-      text: "Blood Testing",
+      text: "Blood Bank",
       icon: (
         <Syringe
           className={`text-[#ED1B24] ${
@@ -104,7 +112,7 @@ const ServicesSlider = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra scelerisque tortor, non feugiat eros vestibulum sit amet. Suspendisse potenti. Sed eget facilisis velit. Nulla facilisi. Morbi in diam vehicula, pulvinar sapien sed, iaculis ex.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pharetra scelerisque tortor, non feugiat eros vestibulum sit amet. Suspendisse potenti. Sed eget facilisis velit.",
       ],
-      image: "/careCenter.jpg",
+      image: FreeCheckUp2,
     },
     {
       title: "Excellence in Medical Care",
@@ -120,7 +128,7 @@ const ServicesSlider = () => {
         "Our commitment to excellence drives us to provide the highest quality medical care using state-of-the-art technology and innovative treatment methods. We believe every patient deserves personalized attention and care.",
         "With a team of highly qualified medical professionals, we ensure that each patient receives comprehensive treatment tailored to their specific needs and medical conditions.",
       ],
-      image: "/BestCare.jpg",
+      image: Cardio,
     },
     {
       title: "Compassionate Healthcare Solutions",
@@ -136,7 +144,7 @@ const ServicesSlider = () => {
         "We focus on treating the whole person, not just the symptoms. Our holistic approach ensures that patients receive comprehensive care that addresses their physical, emotional, and social well-being.",
         "Through our wellness programs and preventive care initiatives, we help patients maintain optimal health and prevent future medical complications.",
       ],
-      image: "/careCenter.jpg",
+      image: DNA
     },
   ];
 
@@ -156,7 +164,7 @@ const ServicesSlider = () => {
         "Our cardiology department offers comprehensive heart care services including advanced ECG monitoring, cardiac screenings, and preventive care programs designed to maintain optimal heart health.",
         "With state-of-the-art equipment and experienced cardiologists, we provide accurate diagnosis and effective treatment for all types of heart conditions.",
       ],
-      image: "/careCenter.jpg",
+      image: Cardio,
     },
     "DNA Testing": {
       title: "Genetic Testing & Analysis",
@@ -172,7 +180,7 @@ const ServicesSlider = () => {
         "Our advanced DNA testing services provide valuable insights into your genetic makeup, helping identify potential health risks and enabling personalized treatment approaches.",
         "Through comprehensive genetic analysis, we help patients make informed decisions about their health and family planning while providing targeted preventive care strategies.",
       ],
-      image: "/careCent.jpg",
+      image: DNA,
     },
     "Blood Bank": {
       title: "Blood Services & Transfusion",
@@ -188,7 +196,7 @@ const ServicesSlider = () => {
         "Our blood bank maintains a safe and adequate supply of blood products for all medical needs. We follow strict safety protocols to ensure the highest quality blood products.",
         "From routine blood typing to emergency transfusions, our blood services department is equipped to handle all blood-related medical requirements with utmost care and precision.",
       ],
-      image: "/careCenter.jpg",
+      image: BloodTest,
     },
     Dermatology: {
       title: "Comprehensive Skin Care",
@@ -204,7 +212,7 @@ const ServicesSlider = () => {
         "Our dermatology services cover the full spectrum of skin health, from medical treatments for skin conditions to cosmetic procedures for aesthetic enhancement.",
         "With advanced diagnostic tools and treatment options, we provide personalized care for all skin types and conditions, ensuring optimal skin health and appearance.",
       ],
-      image: "/careCenter.jpg",
+      image: Derma,
     },
     Orthopedic: {
       title: "Bone & Joint Specialists",
@@ -220,7 +228,7 @@ const ServicesSlider = () => {
         "Our orthopedic department specializes in treating musculoskeletal conditions, from simple fractures to complex joint replacements and spine surgeries.",
         "We combine surgical expertise with comprehensive rehabilitation programs to help patients regain mobility and return to their active lifestyles as quickly as possible.",
       ],
-      image: "/careCenter.jpg",
+      image: Ortho,
     },
   };
 
@@ -350,20 +358,20 @@ const ServicesSlider = () => {
               >
                 {/* Foreground Image */}
                 <div className="absolute top-3 left-0 right-4 bottom-3 z-10">
-                  <div className=" bg-red-600 lg:hidden relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
+                  {/* <div className=" bg-red-600 lg:hidden relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
                     <Image
                       src={ServiceSlider || "/placeholder.jpg"}
                       alt="Medical professionals"
                       fill
                       className="object-cover rounded-md"
                     />
-                  </div>
-                  <div className="hidden lg:block absolute top-3 left-0 right-4 bottom-3">
+                  </div> */}
+                  <div className="hidden lg:block absolute top-3 left-0 right-4 bottom-3 ">
                     <Image
-                      src={ServiceSlider || "/placeholder.jpg"}
+                      src={currentContent.image}
                       alt="Medical professionals"
                       fill
-                      className="object-cover rounded-md"
+                      className="object-cover rounded-md "
                     />
                   </div>
                 </div>
