@@ -2,6 +2,7 @@
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import Image from "next/image";
 import Fancybox from "./FancyBox";
+import { work_sans } from "@/data";
 
 const galleryImages = [
   {
@@ -110,11 +111,11 @@ const galleryImages = [
 
 const HospitalGallery = () => {
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section className="py-12 mt-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800">
+          <h2 className={` ${work_sans.className} text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4`}>
             Hospital Gallery
           </h2>
         </div>

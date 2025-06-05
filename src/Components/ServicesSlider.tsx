@@ -365,12 +365,12 @@ const ServicesSlider = () => {
                       className="object-cover rounded-md"
                     />
                   </div> */}
-                  <div className="hidden lg:block absolute top-3 left-0 right-4 bottom-3 ">
+                  <div className="absolute top-3 left-0 right-0 bottom-3 ">
                     <Image
                       src={currentContent.image}
                       alt="Medical professionals"
                       fill
-                      className="object-cover rounded-md "
+                      className="object-center lg:object-cover rounded-md "
                     />
                   </div>
                 </div>
