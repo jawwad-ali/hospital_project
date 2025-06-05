@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/image";
 import BestCare from "../../public/best_care.png";
 import { features } from "@/data";
 
@@ -42,7 +42,9 @@ export default function HeroSection() {
                 {features.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-blue-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm md:text-base">{feature.text}</span>
+                    <span className="text-gray-700 text-sm md:text-base">
+                      {feature.text}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -50,13 +52,15 @@ export default function HeroSection() {
               {/* Description Paragraphs */}
               <div className="space-y-4 text-gray-600 text-sm md:text-base leading-relaxed">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare
-                  ornare. Quisque placerat scelerisque tortor ornare ornare Convallis felis vitae tortor augue. Velit
-                  nascetur proin massa in. Consequat faucibus porttitor enim et.
+                  At Aziza Husseini Hospital, we are dedicated to offering
+                  compassionate care and the highest level of service. Our
+                  medical professionals bring expertise, empathy, and a personal
+                  touch to every patient.
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque. Convallis felis
-                  vitae tortor augue. Velit nascetur proin massa in.
+                  We provide the support and attention you deserve at every step
+                  of your care. From routine visits to complex treatments, we
+                  ensure that every patient receives the best possible care.
                 </p>
               </div>
             </div>
@@ -64,5 +68,5 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

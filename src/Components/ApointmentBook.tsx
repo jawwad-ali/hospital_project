@@ -6,14 +6,15 @@ export default function AppointmentSection() {
   return (
     <section className="relative bg-white py-20 px-4 lg:px-20 overflow-hidden text-center">
       <div className="z-20 relative mb-10">
-        <h2 className={` ${work_sans.className} text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4`}>
+        <h2
+          className={` ${work_sans.className} text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4`}
+        >
           Book an Appointment
         </h2>
         <p className="text-sm text-[16px] lg:text-lg text-gray-600">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          placerat scelerisque tortor ornare ornare. Convallis felis vitae
-          tortor augue. Velit nascetur proin massa in. Consequat faucibus
-          porttitor enim et..
+          At Aziza Husseini Hospital, booking an appointment is simple and
+          convenient. Our easy-to-use online system allows you to choose your preferred time and
+          doctor, ensuring a seamless experience.
         </p>
       </div>
 
@@ -26,7 +27,12 @@ export default function AppointmentSection() {
           height={505.44}
         />
       </div>
-      <AppointmentForm postion='lg:absolute' top='lg:top-72' right='lg:right-20' width='lg:w-[30%]' />
+      <AppointmentForm
+        postion="lg:absolute"
+        top="lg:top-72"
+        right="lg:right-20"
+        width="lg:w-[30%]"
+      />
     </section>
   );
 }

@@ -53,10 +53,10 @@ const HeroSection = () => {
           A Great Place to Receive Care
         </h2>
         <p className="text-gray-600 mb-6 leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          placerat scelerisque tortor ornare ornare. Convallis felis vitae
-          tortor augue. Velit nascetur proin massa in. Consequat faucibus
-          porttitor enim et.
+          At Aziza Husseini Hospital, we are committed to providing the highest
+          quality care to our patients. Our team of highly trained medical
+          professionals is dedicated to ensuring that each patient receives the
+          attention, compassion, and expertise they deserve.
         </p>
       </div>
 

@@ -4,7 +4,6 @@ import ScheduleHours from "./ScheduleHours";
 import axios from "axios";
 
 const ContactPageAppointmentForm = () => {
-
   return (
     <div className="my-10 lg:my-20 container lg:flex gap-8 mx-auto relative px-6 lg:px-0">
       <div className="w-full lg:w-6/12 flex flex-col relative">
@@ -15,10 +14,9 @@ const ContactPageAppointmentForm = () => {
         </h2>
 
         <p className={`py-10 text-[15px] ${work_sans.className}`}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          placerat scelerisque tortor ornare ornare. Convallis felis vitae
-          tortor augue. Velit nascetur proin massa in. Consequat faucibus
-          porttitor enim et.
+          At Aziza Husseini Hospital, booking an appointment is simple and
+          convenient. Our easy-to-use online system allows you to choose your
+          preferred time and doctor, ensuring a seamless experience.
         </p>
 
         <div>
