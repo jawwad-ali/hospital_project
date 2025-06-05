@@ -1,20 +1,22 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { Poppins } from "next/font/google";
+import BannerImage from "../../public/Banner.png";
 
 const poppins = Poppins({
-    subsets: ['latin'],
-    weight: ['400', '600', '700'], // Add weights you use
-    variable: '--font-poppins',
-    display: 'swap',
-})
+  subsets: ["latin"],
+  weight: ["400", "600", "700"], // Add weights you use
+  variable: "--font-poppins",
+  display: "swap",
+});
 
-const Banner = ({ img, overlayText }: { img: string | StaticImageData; overlayText: string }) => {
+const Banner = ({ overlayText }: { overlayText: string }) => {
   return (
+    <>
     <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden">
       {/* Background Image */}
       <Image
-        src={img}
+        src={BannerImage}
         alt="Medical professionals team"
         fill
         className="object-cover"
@@ -26,11 +28,17 @@ const Banner = ({ img, overlayText }: { img: string | StaticImageData; overlayTe
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full">
-        <h1 className={`font-bold text-white text-center ${poppins.className} aboutus_heading tracking-wider`}>
+        <h1
+          className={`font-bold text-white text-center ${poppins.className} aboutus_heading tracking-wider`}
+        >
           {overlayText}
         </h1>
       </div>
+
     </div>
+      <div className="h-2 bg-gradient-to-r from-blue-600 to-cyan-400"></div>
+    </>
+
   );
 };
 

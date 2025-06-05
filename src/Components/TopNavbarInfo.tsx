@@ -1,12 +1,14 @@
 import { navbarInfoItem, work_sans } from "@/data";
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
+import Link from "next/link";
 
 const TopNavbarInfo = () => {
   return (
     <div>
       <div className="bg-white py-2 border-b">
         <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row lg:justify-between lg:items-center">
+        <Link href='/'>
           <div className="flex lg:items-center">
             <div className="p-2 rounded-md lg:ml-10">
               <Image
@@ -20,6 +22,7 @@ const TopNavbarInfo = () => {
               <span className="flex-shrink-0 pl-2">AZIZA HUSSENI HOSPITAL</span>
             </div>
           </div>
+          </Link>
 
           {/* navbar info items */}
           <div

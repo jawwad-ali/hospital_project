@@ -11,20 +11,31 @@ import { work_sans } from "@/data";
 const testimonials = [
   {
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare. Quisque placerat scelerisque felis vitae tortor augue. Velit nascetur Consequat faucibus porttitor enim et.",
-    author: "John Doe",
+      "I had a wonderful experience at this hospital. The staff was professional, the doctors were very attentive, and I felt well taken care of. The treatment I received was top-notch, and I’m grateful for the care I received during my stay.",
+    author: "Ahmed Khan",
   },
   {
     quote:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-    author: "Jane Smith",
+      "I’ve visited several hospitals, but the level of care I received here was exceptional. The doctors explained everything thoroughly, and the entire team went above and beyond to ensure my comfort. Highly recommended!",
+    author: "Sana Ali",
   },
   {
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat scelerisque tortor ornare ornare. Quisque placerat scelerisque felis vitae tortor augue. Velit nascetur Consequat faucibus porttitor enim et.",
-    author: "Alex Johnson",
+      "My family and I are extremely grateful for the amazing service provided by this hospital. The staff treated us like family, and the facilities were state-of-the-art. It’s clear that this hospital truly cares about its patients.",
+    author: "Bilal Farooq",
+  },
+  {
+    quote:
+      "From the moment I arrived, I was impressed by the cleanliness and professionalism of the hospital. The doctors were compassionate and dedicated, making sure I was well-informed throughout my treatment. I’m thankful for the care I received.",
+    author: "Hina Shah",
+  },
+  {
+    quote:
+      "I had a great experience at this hospital. The treatment was effective, and the nurses and doctors were always available to help. I felt completely supported throughout my recovery process. Thank you for your excellent service.",
+    author: "Faisal Rehman",
   },
 ];
+
 
 export default function Testimonials() {
   const [currentSlide, setCurrentSlide] = useState(0);

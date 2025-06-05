@@ -30,7 +30,7 @@ export default function HeroSection() {
               {/* Header */}
               <div className="mb-8">
                 <p className="text-blue-500 text-sm md:text-base font-medium tracking-wider uppercase mb-3">
-                  Welcome to Hospital Name
+                  Welcome to AZIZA HUSSENI HOSPITAL
                 </p>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                   Best Care for Your Good Health
