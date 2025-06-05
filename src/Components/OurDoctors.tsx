@@ -1,19 +1,12 @@
 "use client";
 
-import { doctors, yeseva } from "@/data";
+import { doctors } from "@/data";
 
-import React, { useState, useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
-import { motion } from "framer-motion";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-
-type Doctor = {
-  name: string;
-  specialty: string;
-  imageUrl?: string;
-};
 
 export default function OurDoctors() {
   const [currentSlide, setCurrentSlide] = useState(0);

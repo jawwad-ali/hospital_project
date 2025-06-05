@@ -6,6 +6,13 @@ import {
   Poppins,
 } from "next/font/google";
 
+import DrGhousia from "../public/ghousia.png"
+import DrNoorush from "../public/noorush.png"
+import DrFasahatullah from "../public/fasahatullah.png"
+import DrUzma from "../public/uzma.png"
+import DrJabeen from "../public/jabeen.png"
+import DrRaskhErum from "../public/erum.png"
+
 export const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -242,19 +249,34 @@ export const importantLinks = [
 
 export const doctors = [
   {
-    name: "Doctor's Name",
-    specialty: "NEUROLOGY",
-    imageUrl: "/Rectangle 20.jpg",
+    name: "Dr Ghousia",
+    specialty: "Gynecologist",
+    imageUrl: DrGhousia,
   },
   {
-    name: "Doctor's Name",
-    specialty: "NEUROLOGY",
-    imageUrl: "/DoctorImage2.jpg",
+    name: "Dr. Noorush Shamim",
+    specialty: "Gynecologist",
+    imageUrl: DrNoorush,
   },
   {
-    name: "Doctor's Name",
-    specialty: "NEUROLOGY",
-    imageUrl: "/DoctorImage3.jpg",
+    name: "Dr. Syed Fasahatullah Husseni",
+    specialty: "PEDIATRICIAN",
+    imageUrl: DrFasahatullah,
+  },
+    {
+    name: "Dr. Uzma Imran",
+    specialty: "Gynecologist",
+    imageUrl: DrUzma,
+  },
+    {
+    name: "Dr. Jabeen Zahid",
+    specialty: "Gynecologist",
+    imageUrl: DrJabeen,
+  },
+    {
+    name: "Dr. Rashk Erum ",
+    specialty: "Gynecologist",
+    imageUrl: DrRaskhErum,
   },
 ];
 
