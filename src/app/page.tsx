@@ -1,5 +1,6 @@
 import BookAppointment from "@/Components/ApointmentBook";
 import Contacts from "@/Components/Contacts";
+import HospitalGallery from "@/Components/Gallery";
 import GetInTouch from "@/Components/GetInTouch";
 import HeroSection from "@/Components/HeroSection";
 import OurDoctors from "@/Components/OurDoctors";
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <OurSpecialties />
       <OurDoctors />
+      <HospitalGallery />
       <BookAppointment />
       <Contacts />
     </div>

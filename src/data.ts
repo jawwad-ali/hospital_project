@@ -318,7 +318,7 @@ export const actionButtons = [
     icon: Users,
     bgColor: "bg-[#BFD2F8]",
     hoverColor: "hover:bg-purple-400",
-    // href: "/consultant",
+    href: "/doctors/#schedule",
     color: "text-[#1F2B6C]",
   },
   {

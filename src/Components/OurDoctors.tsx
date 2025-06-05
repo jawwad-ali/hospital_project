@@ -41,7 +41,7 @@ export default function OurDoctors() {
       <div ref={sliderRef} className="keen-slider max-w-[1000px] mx-auto">
         {doctors.map((doc, index) => (
           <div key={index} className="keen-slider__slide">
-            <div className="lg:w-[317px] mx-6 max-h-auto bg-white border border-gray-100 rounded-lg shadow">
+            <div className="lg:w-[317px]  max-h-auto bg-white border border-gray-100 rounded-lg shadow">
               <div className="w-full">
                 <Image
                   src={doc.imageUrl || "/placeholder.svg"}
@@ -53,7 +53,7 @@ export default function OurDoctors() {
                 />
               </div>
 
-              <div className=" text-center bg-white rounded-lg shadow flex flex-col justify-between pt-4">
+              <div className=" text-center bg-white rounded-lg shadow flex flex-col justify-center items-center pt-4">
                 <div>
                   <h3 className="text-lg font-medium text-gray-800 mb-1">
                     {doc.name}
@@ -74,7 +74,7 @@ export default function OurDoctors() {
                   </div>
                 </div>
 
-                <button className="w-full lg:w-[340px] py-3 cursor-pointer bg-red-600 text-white text-center font-medium hover:bg-red-700 transition-colors mx-auto">
+                <button className="w-full lg:w-[315px] py-3 overflow-hidden cursor-pointer bg-red-600 text-white text-center font-medium hover:bg-red-700 transition-colors mx-auto">
                   View Profile
                 </button>
               </div>

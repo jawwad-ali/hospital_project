@@ -2,7 +2,7 @@ import { doctorSchedule, tableHeadings } from "@/data";
 
 export default function DoctorScheduleTable() {
   return (
-    <section className="py-8 px-24 bg-gray-50">
+    <section id="schedule" className="py-8 px-24 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Desktop Table View */}
         <div className="hidden lg:block overflow-x-auto">
@@ -11,8 +11,8 @@ export default function DoctorScheduleTable() {
             <thead
             >
               <tr className="border-b-2 border-red-500">
-                {tableHeadings.map((heading) => (
-                  <th className="text-left py-4 px-6 font-semibold text-gray-800 text-sm tracking-wider uppercase">
+                {tableHeadings.map((heading, index) => (
+                  <th key={index} className="text-left py-4 px-6 font-semibold text-gray-800 text-sm tracking-wider uppercase">
                     {heading}
                   </th>
                 ))}

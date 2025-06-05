@@ -1,5 +1,4 @@
 import { navbarInfoItem, work_sans } from "@/data";
-import React from "react";
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 
@@ -7,7 +6,7 @@ const TopNavbarInfo = () => {
   return (
     <div>
       <div className="bg-white py-2 border-b">
-        <div className="container max-w-5xl mx-auto flex flex-col md:flex-row lg:justify-between lg:items-center">
+        <div className="container max-w-5xl mx-auto flex flex-col lg:flex-row lg:justify-between lg:items-center">
           <div className="flex lg:items-center">
             <div className="p-2 rounded-md lg:ml-10">
               <Image
@@ -24,7 +23,7 @@ const TopNavbarInfo = () => {
 
           {/* navbar info items */}
           <div
-            className={`${work_sans.className} flex flex-wrap lg:justify-center md:justify-end gap-4 mt-2 md:mt-0`}
+            className={`${work_sans.className} flex flex-wrap lg:justify-center gap-4 mt-2 md:mt-0`}
           >
             {navbarInfoItem.map(({ id, Icon, title, value }: any) => (
               <div key={id} className="lg:flex items-center">
