@@ -5,7 +5,7 @@ import ContactPageAppointmentForm from "@/Components/ContactPageAppointmentForm"
 const ContactPage = () => {
   return (
     <div>
-      <Banner overlayText="Book an Appointment" img={BookAnAppointmentBanner} />
+      <Banner overlayText="Book an Appointment" />
       <ContactPageAppointmentForm />
     </div>
   );

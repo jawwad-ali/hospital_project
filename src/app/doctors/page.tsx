@@ -7,7 +7,7 @@ import Contacts from "@/Components/Contacts";
 const Doctors = () => {
   return (
     <div>
-        <Banner overlayText="Our Doctors" img={OurDoctorsBanner} />
+        <Banner overlayText="Our Doctors" />
         <DoctorScheduleTable />
         <OurDoctors />
         <Contacts />
