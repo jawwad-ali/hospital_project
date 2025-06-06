@@ -41,8 +41,33 @@ const AppointmentForm = ({
   } = useForm<FormInputs>();
   const [submitted, setSubmitted] = useState(false);
 
-  const doctors = ["Dr. Ghousia", "Dr. Noorush Shamim", "Dr. Syed Fasahatullah Husseni", 'Dr Uzma Imran', 'Dr. Jabeen Zahid', 'Dr. Rashk Erum'];
-  const departments = ["Gynecologist", "Pediatrics", "Neurology"];
+  const doctors = [
+    "Dr. Aisha Siddiqua",
+    "Dr. Anjum Sami",
+    "Dr. Asif",
+    "Dr. Furqan Hasheem",
+    "Dr. Ghousia",
+    "Dr. Jabeen Zahid",
+    "Dr. Muhammad Ali",
+    "Dr. Munazza Faraz",
+    "Dr. Noorush Shamim",
+    "Dr. Rashk Erum",
+    "Dr. Shahid Ansari",
+    "Dr. Sidra Masoom",
+    "Dr. Syed Danish Ali",
+    "Dr. Syed Fasahatullah Husseni",
+    "Dr. Unza Shaikh",
+    "Dr. Uzma Imran",
+  ];
+  const departments = [
+    "General Physician",
+    "General Surgeon",
+    "Gynecologist",
+    "Orthopedic Surgeon",
+    "Pediatrician",
+    "Physiotherapist",
+    "Plastic Surgeon",
+  ];
   const genders = ["Male", "Female", "Other"];
 
   const dates2025 = getDatesFromTodayToEndOfNextMonth();
