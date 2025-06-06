@@ -41,8 +41,8 @@ const AppointmentForm = ({
   } = useForm<FormInputs>();
   const [submitted, setSubmitted] = useState(false);
 
-  const doctors = ["Dr. Smith", "Dr. Jones", "Dr. Brown"];
-  const departments = ["Cardiology", "Pediatrics", "Neurology"];
+  const doctors = ["Dr. Ghousia", "Dr. Noorush Shamim", "Dr. Syed Fasahatullah Husseni", 'Dr Uzma Imran', 'Dr. Jabeen Zahid', 'Dr. Rashk Erum'];
+  const departments = ["Gynecologist", "Pediatrics", "Neurology"];
   const genders = ["Male", "Female", "Other"];
 
   const dates2025 = getDatesFromTodayToEndOfNextMonth();

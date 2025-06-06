@@ -1,4 +1,5 @@
 import BookAppointment from "@/Components/ApointmentBook";
+import ChoosingUs from "@/Components/ChoosingUs";
 import Contacts from "@/Components/Contacts";
 import HospitalGallery from "@/Components/Gallery";
 import GetInTouch from "@/Components/GetInTouch";

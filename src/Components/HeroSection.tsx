@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { actionButtons, ibm_plex_sans, work_sans, poppins } from "@/data";
+import { ibm_plex_sans, work_sans, poppins } from "@/data";
 import DoctorSearchBar from "./DoctorSearchBar";
 import HeroSectionActions from "./HeroSectionActions";
 import ChoosingUs from "./ChoosingUs";
+import WhyChooseUs from "/public/why_choose_us.png"
 
 const HeroSection = () => {
   return (
@@ -64,7 +65,7 @@ const HeroSection = () => {
         <div className="relative flex items-center justify-center w-full lg:max-w-lg mx-auto">
           <div className="absolute inset-0 bg-red-700 rounded-2xl -left-6 -top-6 w-full h-full z-0" />
           <Image
-            src="/Rectangle 11.jpg"
+            src={WhyChooseUs}
             alt="Doctor Visual"
             width={500}
             height={500}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BestCare from "../../public/best_care.png";
+import BestCare from "../../public/best_care_health.png";
 import { features } from "@/data";
 
 export default function HeroSection() {
@@ -14,12 +14,13 @@ export default function HeroSection() {
             {/* Left side - Image */}
             <div className="order-2 lg:order-1">
               <div className="relative">
+                <div className="absolute inset-0 bg-red-700 rounded-2xl -left-6 -top-6 w-full h-full z-0" />
                 <Image
                   src={BestCare}
                   alt="Two female medical professionals smiling"
                   width={500}
-                  height={400}
-                  className="rounded-lg shadow-lg object-cover w-full"
+                  height={500}
+                  className="rounded-2xl relative z-10 object-cover w-full h-[80%]"
                   priority
                 />
               </div>
@@ -32,7 +33,7 @@ export default function HeroSection() {
                 <p className="text-blue-500 text-sm md:text-base font-medium tracking-wider uppercase mb-3">
                   Welcome to AZIZA HUSSENI HOSPITAL
                 </p>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1F2B6C] leading-tight">
                   Best Care for Your Good Health
                 </h1>
               </div>
