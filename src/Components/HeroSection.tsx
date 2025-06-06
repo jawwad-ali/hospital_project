@@ -30,7 +30,7 @@ const HeroSection = () => {
               CARING FOR LIFE
             </p>
             <h1
-              className={`${poppins.className} text-[42px] leading-12 lg:leading-18 md:text-6xl font-bold mb-8 tracking-wide`}
+              className={`${poppins.className} text-[42px] w-[300px] md:w-full leading-12 lg:leading-18 md:text-6xl font-bold mb-8 tracking-wide`}
             >
               Leading the Way in Medical Excellence
             </h1>

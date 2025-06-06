@@ -6,12 +6,12 @@ import {
   Poppins,
 } from "next/font/google";
 
-import DrGhousia from "../public/ghousia.png"
-import DrNoorush from "../public/noorush.png"
-import DrFasahatullah from "../public/fasahatullah.png"
-import DrUzma from "../public/uzma.png"
-import DrJabeen from "../public/jabeen.png"
-import DrRaskhErum from "../public/erum.png"
+import DrGhousia from "../public/ghousia.png";
+import DrNoorush from "../public/noorush.png";
+import DrFasahatullah from "../public/fasahatullah.png";
+import DrUzma from "../public/uzma.png";
+import DrJabeen from "../public/jabeen.png";
+import DrRaskhErum from "../public/erum.png";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -40,19 +40,19 @@ export const navbarInfoItem = [
     id: 1,
     Icon: Phone,
     title: "EMERGENCY",
-    value: "021 36360526",
+    value: "021-36360526",
   },
   {
     id: 2,
     Icon: Clock,
     title: "WORK HOUR",
-    value: "09:00 - 19:00 Everyday",
+    value: "24/7 Everyday",
   },
   {
     id: 3,
     Icon: MapPin,
     title: "LOCATION",
-    value: "C-52'13, FB Area, Kar.ichli-75950.Pakistan",
+    value: "C-52'13, FB Area, Karachi-75950.Pakistan",
   },
 ];
 
@@ -61,13 +61,13 @@ export const contactData = [
     id: 1,
     icon: Phone,
     title: "EMERGENCY",
-    details: ["02136360526", "02136806905"],
+    details: ["021-36360526", "021-36806905"],
   },
   {
     id: 2,
     icon: MapPin,
     title: "LOCATION",
-    details: ["C-52'13, FB Area, Kar.ichli-75950.Pakistan"],
+    details: ["C-52'13, FB Area, Karachi-75950.Pakistan"],
   },
   {
     id: 3,
@@ -231,20 +231,24 @@ export const doctorSchedule = [
 ];
 
 export const contactDetails = [
-  { type: "EMERGENCY", label: "Call:", details: ["02136360526"] },
-  { type: "EMAIL", label: "Email:", details: ["azizahussenigeneralhospital@gmail.com"] },
+  { type: "EMERGENCY", label: "Call:", details: ["021-36360526"] },
+  {
+    type: "EMAIL",
+    label: "Email:",
+    details: ["azizahussenigeneralhospital@gmail.com"],
+  },
   {
     type: "ADDRESS",
     label: "Address:",
-    details: ["C-52'13, FB Area, Kar.ichli-75950.Pakistan"],
+    details: ["C-52'13, FB Area, Karachi-75950.Pakistan"],
   },
 ];
 
 export const importantLinks = [
-  "Appointment",
-  "Doctors",
-  "Services",
-  "About Us",
+  { link: "/contact", text: "Appointment" },
+  { link: "/doctors", text: "Doctors" },
+  { link: "/services", text: "Department" },
+  { link: "/about", text: "About Us" },
 ];
 
 export const doctors = [
@@ -263,17 +267,17 @@ export const doctors = [
     specialty: "PEDIATRICIAN",
     imageUrl: DrFasahatullah,
   },
-    {
+  {
     name: "Dr. Uzma Imran",
     specialty: "Gynecologist",
     imageUrl: DrUzma,
   },
-    {
+  {
     name: "Dr. Jabeen Zahid",
     specialty: "Gynecologist",
     imageUrl: DrJabeen,
   },
-    {
+  {
     name: "Dr. Rashk Erum ",
     specialty: "Gynecologist",
     imageUrl: DrRaskhErum,
@@ -333,22 +337,27 @@ export const actionButtons = [
 export const choosing_us_bullets = [
   {
     title: "24/7 Emergency Care",
-    description: "Health emergencies don’t wait, and neither do we. Our dedicated team is available around the clock to provide immediate and high-quality care—day or night.",
+    description:
+      "Health emergencies don’t wait, and neither do we. Our dedicated team is available around the clock to provide immediate and high-quality care—day or night.",
   },
   {
     title: "Highly Experienced Doctors",
-    description: "Our panel of expert doctors brings years of experience, specialization, and compassion to every case. You’re in safe hands, no matter how critical the situation.",
+    description:
+      "Our panel of expert doctors brings years of experience, specialization, and compassion to every case. You’re in safe hands, no matter how critical the situation.",
   },
   {
     title: "Advanced Medical Technology",
-    description: "We use the latest diagnostic and treatment equipment to ensure accuracy, safety, and fast recovery.",
+    description:
+      "We use the latest diagnostic and treatment equipment to ensure accuracy, safety, and fast recovery.",
   },
   {
     title: "Patient-Centered Approach",
-    description: "We treat every patient with personalized attention, respect, and dignity—because your health and comfort matter to us.",
+    description:
+      "We treat every patient with personalized attention, respect, and dignity—because your health and comfort matter to us.",
   },
   {
     title: "Trusted by Thousands",
-    description: "Our hospital is trusted by thousands of patients and families for reliable care, successful treatments, and continuous support.",
+    description:
+      "Our hospital is trusted by thousands of patients and families for reliable care, successful treatments, and continuous support.",
   },
 ];

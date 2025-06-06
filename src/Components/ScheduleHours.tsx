@@ -40,7 +40,7 @@ const ScheduleHours = () => {
             </div>
             <div>
               <p className="text-gray-300 text-sm">Emergency</p>
-              <p className="text-white font-semibold">021 36360526</p>
+              <p className="text-white font-semibold">021-36360526</p>
             </div>
           </div>
         </div>

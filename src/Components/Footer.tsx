@@ -27,13 +27,13 @@ export default function Footer() {
                 Important Links
               </h3>
               <ul className="space-y-3">
-                {importantLinks.map((link) => (
-                  <li key={link}>
+                {importantLinks.map((link, index) => (
+                  <li key={index}>
                     <a
-                      href="#"
+                      href={link.link}
                       className="text-gray-300 hover:text-white transition-colors duration-200 text-sm md:text-base"
                     >
-                      {link}
+                      {link.text}
                     </a>
                   </li>
                 ))}
