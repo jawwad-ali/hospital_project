@@ -8,7 +8,7 @@ import BannerImage from "../../../public/Banner.png";
 const Services = () => {
   return (
     <div>
-      <Banner overlayText="Our Services" />
+      <Banner overlayText="Our Departments" />
       <OurSpecialties />
       {/* Slider Pending */}
       <ServicesSlider />

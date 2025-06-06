@@ -43,7 +43,7 @@ export default function Contacts() {
                   {item.details.map((detail, index) => (
                     <p
                       key={index}
-                      className="text-sm md:text-base leading-relaxed"
+                      className="text-sm md:text-base text-ellipsis overflow-hidden leading-relaxed"
                     >
                       {ContactInfo(item.title, detail)}
                     </p>

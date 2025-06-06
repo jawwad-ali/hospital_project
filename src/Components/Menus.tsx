@@ -20,7 +20,7 @@ const Menus = () => {
               About us
             </Link>
             <Link href="/services" className="font-medium">
-              Services
+              Departments
             </Link>
             <Link href="/doctors" className="font-medium">
               Doctors
@@ -46,7 +46,7 @@ const Menus = () => {
                 About us
               </Link>
               <Link href="/services" className="font-medium">
-                Services
+                Departments
               </Link>
               <Link href="/doctors" className="font-medium">
                 Doctors

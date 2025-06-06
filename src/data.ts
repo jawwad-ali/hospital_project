@@ -73,7 +73,7 @@ export const contactData = [
     id: 3,
     icon: Mail,
     title: "EMAIL",
-    details: ["fildineeesoe@gmit.com", "myebstudios@gmail.com"],
+    details: ["azizahussenigeneralhospital@gmail.com"],
   },
   {
     id: 4,
@@ -232,7 +232,7 @@ export const doctorSchedule = [
 
 export const contactDetails = [
   { type: "EMERGENCY", label: "Call:", details: ["02136360526"] },
-  { type: "EMAIL", label: "Email:", details: ["fildineeesoe@gmail.com"] },
+  { type: "EMAIL", label: "Email:", details: ["azizahussenigeneralhospital@gmail.com"] },
   {
     type: "ADDRESS",
     label: "Address:",
@@ -282,7 +282,7 @@ export const doctors = [
 
 export const specialtiesWithIcon = [
   { title: "Neurology", icon: "/heart.jpg" },
-  { title: "Bones", icon: "/heart.jpg" },
+  { title: "Orthopedic", icon: "/heart.jpg" },
   { title: "Oncology", icon: "/heart.jpg" },
   { title: "Otorhinolaryngology", icon: "/heart.jpg" },
   { title: "Ophthalmology", icon: "/heart.jpg" },

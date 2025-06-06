@@ -11,13 +11,13 @@ const HeroSection = () => {
   return (
     <section className="bg-white font-sans">
       {/* hero Section */}
-      <div className="relative h-[82dvh] bg-gray-800 text-white">
+      <div className="relative md:h-[82dvh] bg-gray-800 text-white">
         <div className="absolute inset-0 z-0">
           <Image
             src="/hos banner 1.jpg"
             alt="Hospital Building"
             fill
-            className="object-cover opacity-60"
+            className="object-center lg:object-cover opacity-60"
             priority
           />
         </div>

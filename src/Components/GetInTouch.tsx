@@ -35,8 +35,7 @@ export default function GetInTouch() {
           <div className="bg-[#ED1B24] text-white p-8 flex flex-col items-center">
             <Mail className="w-8 h-8 mb-4" />
             <h3 className="font-bold mb-4">EMAIL</h3>
-            <p className="text-center">fildineesoe@gmail.com</p>
-            <p className="text-center">myebstudios@gmail.com</p>
+            <p className="text-center text-ellipsis overflow-hidden">azizahussenigeneralhospital@gmail.com</p>
           </div>
 
           {/* Working Hours Card */}
