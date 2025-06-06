@@ -19,8 +19,9 @@ const AppointmentListComponent = () => {
   }, []);
 
   //   Early Return
-  if (!paitentsList || paitentsList.length === 0)
-    return <Spinner size="sm" className="bg-red-500 dark:bg-white" />;
+  if (!paitentsList || paitentsList?.length === 0)
+    console.log('NO Records found!!')
+    // return <Spinner size="sm" className="bg-red-500 dark:bg-white" />;
 
   // Extract headers (first row)
   const headers = paitentsList[0];
@@ -59,7 +60,7 @@ const AppointmentListComponent = () => {
     // Create a new row padded with empty strings if length is less than headers
     const paddedRow = [...row];
     while (paddedRow.length < headers.length) {
-      paddedRow.push("");
+      paddedRow?.push("");
     }
     return paddedRow;
   });
@@ -89,7 +90,7 @@ const AppointmentListComponent = () => {
           <table className="w-full border-collapse min-w-max">
             <thead>
               <tr>
-                {headers.map((header, idx) => (
+                {headers?.map((header, idx) => (
                   <th
                     key={idx}
                     className={`text-left py-4 px-3 font-bold border-b-2 border-red-500 text-gray-800 text-xs tracking-wider uppercase`}
@@ -116,9 +117,9 @@ const AppointmentListComponent = () => {
   };
 
   // Show NotFound component if there are no data rows (only header exists)
-  if (paitentsList?.length === 0) {
-    return <NotFound />;
-  }
+  // if (paitentsList?.length === 0) {
+  //   return <NotFound />;
+  // }
 
   return (
     <div>
@@ -127,7 +128,7 @@ const AppointmentListComponent = () => {
           <table className="w-full border-collapse min-w-max table-fixed">
             <thead>
               <tr>
-                {headers.map((header, idx) => (
+                {headers?.map((header, idx) => (
                   <th
                     key={idx}
                     className={`text-left py-4 px-3 font-bold border-b-2 border-red-500 text-gray-800 text-xs tracking-wider uppercase ${getColumnWidth(idx, header)}`}
@@ -146,7 +147,7 @@ const AppointmentListComponent = () => {
             </thead>
 
             <tbody>
-              {normalizedRows.map((row, rowIndex) => (
+              {normalizedRows?.map((row, rowIndex) => (
                 <tr
                   key={rowIndex}
                   className={`border-b border-gray-100 hover:bg-gray-50 transition-colors duration-200 ${
