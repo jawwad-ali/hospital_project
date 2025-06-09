@@ -143,13 +143,6 @@ export const doctorSchedule = [
     timings: ["5:00 PM TO 7:00 PM"],
     days: "FRIDAY & SUNDAY",
   },
-  // {
-  //   name: "DR. NOORUSH SHAMMI",
-  //   department: "GYNAECOLOGIST",
-  //   degree: "MBBS, MCPS, MRCOG",
-  //   timings: ["8:00 PM TO 10:00 PM"],
-  //   days: "TUESDAY, THURSDAY, SATURDAY",
-  // },
   {
     name: "DR. SYED FASAHATULLAH",
     department: "PEDIATRICIAN",
@@ -178,13 +171,6 @@ export const doctorSchedule = [
     timings: ["12:00 NOON TO 1:00 PM"],
     days: "MONDAY TO SATURDAY",
   },
-  // {
-  //   name: "DR. IMRAN AWAN",
-  //   department: "GENERAL PHYSICIAN",
-  //   degree: "MBBS, MCPS",
-  //   timings: ["12:00 PM TO 8:00 PM"],
-  //   days: "MONDAY TO SATURDAY",
-  // },
   {
     name: "DR. SIDRA MASOOM",
     department: "GENERAL SURGEON",
@@ -207,13 +193,7 @@ export const doctorSchedule = [
     timings: ["8:00 PM TO 10:00 PM"],
     days: "MONDAY TO FRIDAY",
   },
-  // {
-  //   name: "ASSOCIATE PROF. PAF BASE FAISAL", // This seems to be part of Dr. Syed Danish Ali's entry or a separate entity without a clear doctor name. Assuming it's related to Dr. Syed Danish Ali based on proximity and formatting, but clarification might be needed. For now, creating a separate entry as the structure implies a new individual or role.
-  //   department: "", // No department specified, might be implicitly Orthopedic or a general title
-  //   degree: "", // No degree specified
-  //   timings: ["5:00 PM TO 6:00 PM"],
-  //   days: "TUESDAY, THURSDAY, FRIDAY",
-  // },
+
   {
     name: "DR. UNZA SHAIKH",
     department: "PLASTIC SURGEON",
@@ -361,3 +341,26 @@ export const choosing_us_bullets = [
       "Our hospital is trusted by thousands of patients and families for reliable care, successful treatments, and continuous support.",
   },
 ];
+
+
+  // {
+  //   name: "ASSOCIATE PROF. PAF BASE FAISAL", // This seems to be part of Dr. Syed Danish Ali's entry or a separate entity without a clear doctor name. Assuming it's related to Dr. Syed Danish Ali based on proximity and formatting, but clarification might be needed. For now, creating a separate entry as the structure implies a new individual or role.
+  //   department: "", // No department specified, might be implicitly Orthopedic or a general title
+  //   degree: "", // No degree specified
+  //   timings: ["5:00 PM TO 6:00 PM"],
+  //   days: "TUESDAY, THURSDAY, FRIDAY",
+  // },
+    // {
+  //   name: "DR. IMRAN AWAN",
+  //   department: "GENERAL PHYSICIAN",
+  //   degree: "MBBS, MCPS",
+  //   timings: ["12:00 PM TO 8:00 PM"],
+  //   days: "MONDAY TO SATURDAY",
+  // },
+    // {
+  //   name: "DR. NOORUSH SHAMMI",
+  //   department: "GYNAECOLOGIST",
+  //   degree: "MBBS, MCPS, MRCOG",
+  //   timings: ["8:00 PM TO 10:00 PM"],
+  //   days: "TUESDAY, THURSDAY, SATURDAY",
+  // },

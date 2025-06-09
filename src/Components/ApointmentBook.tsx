@@ -28,10 +28,10 @@ export default function AppointmentSection() {
         />
       </div>
       <AppointmentForm
-        postion="lg:absolute"
+        position="lg:absolute"
         top="lg:top-72"
         right="lg:right-20"
-        width="lg:w-[30%]"
+        width="lg:w-[35%]"
       />
     </section>
   );
