@@ -183,7 +183,7 @@ export const doctorSchedule = [
     department: "GENERAL SURGEON",
     degree: "MBBS, FCPS",
     timings: ["7:00 PM TO 8:00 PM"],
-    days: "MONDAY, TO FRIDAY",
+    days: "MONDAY TO FRIDAY",
   },
   {
     name: "DR. SYED DANISH ALI",

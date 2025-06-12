@@ -7,7 +7,10 @@ import { useForm } from "react-hook-form";
 import { handleServer } from "@/app/server";
 import {
   generateTimeSlots,
+  getDatesForSelectedDay,
   getDatesFromTodayToEndOfNextMonth,
+  parseDoctorDays,
+  isDoctorAvailableOnDate
 } from "@/clientHelperfunction";
 import { doctorSchedule } from "@/data";
 
@@ -20,30 +23,8 @@ type FormInputs = {
   time: string;
   doctor: string;
   department: string;
+  availableDays: string;
   message: string;
-};
-
-// Helper function to check if selected date matches doctor's available days
-const isDoctorAvailableOnDate = (
-  doctor: (typeof doctorSchedule)[0],
-  selectedDate: string
-): boolean => {
-  const date = new Date(selectedDate);
-  const dayName = date
-    .toLocaleDateString("en-US", { weekday: "long" })
-    .toUpperCase();
-
-  const doctorDays = doctor.days.toUpperCase();
-
-  // Handle different day formats
-  if (doctorDays.includes("MONDAY TO SATURDAY")) {
-    return !["SUNDAY"].includes(dayName);
-  }
-  if (doctorDays.includes("MONDAY TO FRIDAY")) {
-    return !["SATURDAY", "SUNDAY"].includes(dayName);
-  }
-
-  return doctorDays.includes(dayName);
 };
 
 const AppointmentForm = ({
@@ -71,6 +52,7 @@ const AppointmentForm = ({
   // Watch form values to trigger updates
   const selectedDoctor = watch("doctor");
   const selectedDate = watch("date");
+  const selectedDay = watch("availableDays");
 
   // Memoized doctor data lookup
   const selectedDoctorData = useMemo(() => {
@@ -78,6 +60,12 @@ const AppointmentForm = ({
       (doc) => doc.name.toLowerCase() === selectedDoctor?.toLowerCase()
     );
   }, [selectedDoctor]);
+
+  // Available days for the selected doctor
+  const availableDays = useMemo(() => {
+    if (!selectedDoctorData) return [];
+    return parseDoctorDays(selectedDoctorData.days);
+  }, [selectedDoctorData]);
 
   // Available time slots based on selected doctor and date
   const availableTimeSlots = useMemo(() => {
@@ -95,6 +83,7 @@ const AppointmentForm = ({
   useEffect(() => {
     if (selectedDoctor) {
       setValue("time", ""); // Clear time when doctor changes
+      setValue("availableDays", ""); // Clear days when doctor changes
       if (selectedDoctorData) {
         setValue("department", selectedDoctorData.department);
       }
@@ -107,6 +96,11 @@ const AppointmentForm = ({
       setValue("time", ""); // Clear time when date changes
     }
   }, [selectedDate, setValue]);
+
+  // You can also clear the date value when the user changes availableDays, to avoid stale selections:
+  useEffect(() => {
+    setValue("date", "");
+  }, [selectedDay, setValue]);
 
   // Get unique departments for the department dropdown
   const availableDepartments = useMemo(() => {
@@ -123,36 +117,15 @@ const AppointmentForm = ({
       .sort((a, b) => a.name.localeCompare(b.name));
   }, []);
 
-  // const doctors = [
-  //   "Dr. Aisha Siddiqua",
-  //   "Dr. Anjum Sami",
-  //   "Dr. Asif",
-  //   "Dr. Furqan Hasheem",
-  //   "Dr. Ghousia",
-  //   "Dr. Jabeen Zahid",
-  //   "Dr. Muhammad Ali",
-  //   "Dr. Munazza Faraz",
-  //   "Dr. Noorush Shamim",
-  //   "Dr. Rashk Erum",
-  //   "Dr. Shahid Ansari",
-  //   "Dr. Sidra Masoom",
-  //   "Dr. Syed Danish Ali",
-  //   "Dr. Syed Fasahatullah Husseni",
-  //   "Dr. Unza Shaikh",
-  //   "Dr. Uzma Imran",
-  // ];
-  // const departments = [
-  //   "General Physician",
-  //   "General Surgeon",
-  //   "Gynecologist",
-  //   "Orthopedic Surgeon",
-  //   "Pediatrician",
-  //   "Physiotherapist",
-  //   "Plastic Surgeon",
-  // ];
   const genders = ["Male", "Female", "Other"];
 
   const dates2025 = getDatesFromTodayToEndOfNextMonth();
+
+  const filteredDates = useMemo(() => {
+    if (!selectedDay) return [];
+    return getDatesForSelectedDay(selectedDay);
+  }, [selectedDay]);
+
   const timeSlots = generateTimeSlots();
 
   // Submitting the form and API call to POST data in SpreadSheet
@@ -173,7 +146,7 @@ const AppointmentForm = ({
   return (
     <div>
       <div
-        className={`relative ${position} ${top} ${width} ${right} form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30`}
+        className={`relative  ${position} ${top} ${width} ${right} form_box_shadow bg-[#1F2B6C] text-white p-6 shadow-xl z-30 overflow-y-auto max-h-[90vh] scrollbar-thin scrollbar-thumb-blue-700 scrollbar-track-blue-300`}
       >
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -289,19 +262,18 @@ const AppointmentForm = ({
                   required: "Please select a department",
                 })}
                 disabled={!!selectedDoctorData} // Disable if doctor is selected
-                className="p-2 rounded text-white [&>option]:text-black"
+                className="p-2 rounded text-white [&>option]:text-black disabled:opacity-60"
               >
                 <option value="">
                   {selectedDoctorData
                     ? selectedDoctorData.department
                     : "Select Department"}
                 </option>
-                {selectedDoctorData &&
-                  availableDepartments.map((dep) => (
-                    <option key={dep} value={dep}>
-                      {dep}
-                    </option>
-                  ))}
+                {availableDepartments.map((dep) => (
+                  <option key={dep} value={dep}>
+                    {dep}
+                  </option>
+                ))}
               </select>
               {errors.department && (
                 <p className="text-red-400 text-sm mt-1" role="alert">
@@ -309,26 +281,61 @@ const AppointmentForm = ({
                 </p>
               )}
             </div>
-          </div>
 
-          {/* Date */}
-          <div className="flex flex-col mt-3">
-            <select
-              {...register("date", { required: "Please select a date" })}
-              className="p-2 rounded text-white [&>option]:text-black"
-            >
-              <option value="">Select Date</option>
-              {dates2025.map((d) => (
-                <option key={d} value={d}>
-                  {d}
+            {/* Available Days */}
+            <div className="flex flex-col">
+              <select
+                {...register("availableDays", {
+                  required: "Please select an available day",
+                })}
+                disabled={!selectedDoctorData} // Disable if no doctor is selected
+                className="p-2 rounded text-white [&>option]:text-black disabled:opacity-60"
+              >
+                <option value="">
+                  {!selectedDoctorData
+                    ? "Select Doctor First"
+                    : "Select Available Day"}
                 </option>
-              ))}
-            </select>
-            {errors.date && (
-              <p className="text-red-400 text-sm mt-1" role="alert">
-                {errors.date.message}
-              </p>
-            )}
+                {availableDays.map((day) => (
+                  <option key={day} value={day}>
+                    {day}
+                  </option>
+                ))}
+              </select>
+              {errors.availableDays && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.availableDays.message}
+                </p>
+              )}
+              {selectedDoctorData && (
+                <p className="text-gray-300 text-xs mt-1">
+                  Doctor's schedule: {selectedDoctorData.days}
+                </p>
+              )}
+            </div>
+
+            {/* Date */}
+            <div className="flex flex-col">
+              <select
+                {...register("date", { required: "Please select a date" })}
+                disabled={!selectedDay}
+                className="p-2 rounded text-white [&>option]:text-black disabled:opacity-60"
+              >
+                <option value="">
+                  {!selectedDay ? "Select Available Day First" : "Select Date"}
+                </option>
+                {filteredDates.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+              {errors.date && (
+                <p className="text-red-400 text-sm mt-1" role="alert">
+                  {errors.date.message}
+                </p>
+              )}
+            </div>
           </div>
 
           {/* Time */}
@@ -354,7 +361,7 @@ const AppointmentForm = ({
               ))}
             </select>
             {errors.time && (
-              <p className="text-white text-sm mt-1" role="alert">
+              <p className="text-red-400 text-sm mt-1" role="alert">
                 {errors.time.message}
               </p>
             )}
@@ -378,10 +385,41 @@ const AppointmentForm = ({
             />
           </div>
 
+          {/* Doctor Information Display */}
+          {selectedDoctorData && (
+            <div className="mt-3 p-3 bg-blue-900/30 rounded border border-blue-700/50">
+              <h4 className="text-sm font-semibold text-blue-200 mb-2">
+                Selected Doctor Info:
+              </h4>
+              <div className="text-xs space-y-1 text-gray-300">
+                <p>
+                  <span className="text-blue-200">Name:</span>{" "}
+                  {selectedDoctorData.name}
+                </p>
+                <p>
+                  <span className="text-blue-200">Department:</span>{" "}
+                  {selectedDoctorData.department}
+                </p>
+                <p>
+                  <span className="text-blue-200">Qualifications:</span>{" "}
+                  {selectedDoctorData.degree}
+                </p>
+                <p>
+                  <span className="text-blue-200">Available Days:</span>{" "}
+                  {selectedDoctorData.days}
+                </p>
+                <p>
+                  <span className="text-blue-200">Available Times:</span>{" "}
+                  {selectedDoctorData.timings.join(", ")}
+                </p>
+              </div>
+            </div>
+          )}
+
           <input
             type="submit"
             value="Book Appointment"
-            className={`${work_sans.className} bg-blue-500 text-white cursor-pointer hover:bg-blue-600 hover:opacity-100 transition duration-300 uppercase font-semibold py-2 text-base rounded mt-6`}
+            className={`${work_sans.className} bg-blue-500 text-white cursor-pointer hover:bg-blue-600 hover:opacity-100 transition duration-300 uppercase font-semibold py-2 text-base rounded my-6`}
           />
         </form>
       </div>

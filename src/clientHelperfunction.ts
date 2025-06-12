@@ -1,3 +1,5 @@
+import { doctorSchedule } from "@/data";
+
 // This function reterives the date from current date to the end of the next month
 export function getDatesFromTodayToEndOfNextMonth(locale = "en-US") {
   const today = new Date();
@@ -59,4 +61,55 @@ export const generateTimeSlots = (startHour = 9, endHour = 19) => {
   return slots;
 };
 
+// Return dates that match allowed day names (e.g., ["MONDAY", "FRIDAY"])
+export const getDatesForSelectedDay = (day: string): string[] => {
+  const allDates = getDatesFromTodayToEndOfNextMonth();
+  return allDates.filter((dateStr) => {
+    const date = new Date(dateStr);
+    const dayName = date.toLocaleDateString("en-US", {
+      weekday: "long",
+    }).toUpperCase();
+    return dayName === day.toUpperCase();
+  });
+};
 
+// Helper function to parse doctor's available days into individual day options
+export const parseDoctorDays = (daysString: string): string[] => {
+  const days = daysString.toUpperCase();
+
+  if (days.includes("MONDAY TO SATURDAY")) {
+    return ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+  }
+  if (days.includes("MONDAY TO FRIDAY")) {
+    return ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"];
+  }
+
+  // Split by comma and clean up
+  return days
+    .split(/[,&]/)
+    .map((day) => day.trim())
+    .filter((day) => day.length > 0);
+};
+
+// Helper function to check if selected date matches doctor's available days
+export const isDoctorAvailableOnDate = (
+  doctor: (typeof doctorSchedule)[0],
+  selectedDate: string
+): boolean => {
+  const date = new Date(selectedDate);
+  const dayName = date
+    .toLocaleDateString("en-US", { weekday: "long" })
+    .toUpperCase();
+
+  const doctorDays = doctor.days.toUpperCase();
+
+  // Handle different day formats
+  if (doctorDays.includes("MONDAY TO SATURDAY")) {
+    return !["SUNDAY"].includes(dayName);
+  }
+  if (doctorDays.includes("MONDAY TO FRIDAY")) {
+    return !["SATURDAY", "SUNDAY"].includes(dayName);
+  }
+
+  return doctorDays.includes(dayName);
+};
